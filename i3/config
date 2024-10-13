@@ -1,0 +1,302 @@
+
+
+
+# Set ALT as super key
+set $mod Mod1
+set $rofi ~/.config/rofi
+set $dunst $HOME/.config/dotfiles/dunst
+
+# Font for window titles
+font pango:Hack Nerd Font Mono 10 
+
+# Start XDG autostart .desktop files using dex. See also
+exec --no-startup-id dex --autostart --environment i3
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# execute touchpad when starting up
+exec --no-startup-id xinput set-prop "ELAN050D:01 04F3:315A Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "ELAN050D:01 04F3:315A Touchpad" "libinput Natural Scrolling Enabled" 1
+
+# display wallpaper
+exec --no-startup-id feh --no-fehbg --bg-fill '/home/saimon-olive/Pictures/backdrops/astro-jelly.jpg'
+
+exec_always --no-startup-id "killall dunst; dunst -conf $HOME/.config/dotfiles/dunst/dunstrc"
+
+
+# floating window pop up automatically
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+# bindsym $mod+d exec --no-startup-id dmenu_run
+
+# start rofi (a modern program launcher)
+# bindsym $mod+d exec --no-startup-id rofi -show drun
+
+###############
+# Rofi bindings
+###############
+
+# Launch an app
+bindsym $mod+d exec rofi -no-lazy-grab -show drun -theme "${rofi}/searcher.rasi" -show-icons
+
+# Active apps
+bindsym $mod+Tab exec rofi -no-lazy-grab -show window -theme "${rofi}/active_apps.rasi" -show-icons
+
+# Powermenu
+bindsym $mod+Shift+p exec rofi -modi 'Powermenu:$rofi/powermenu.sh' -theme "${rofi}/powermenu.rasi" -show Powermenu
+
+####################
+# Better Lock Screen
+####################
+
+# Set wallpaper using feh for the desktop background
+exec --no-startup-id feh --no-fehbg --bg-fill '/home/saimon-olive/Pictures/backdrops/astro-jelly.jpg'
+
+
+exec --no-startup-id betterlockscreen -w dim
+
+bindsym $mod+shift+x exec betterlockscreen -l dim
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Ctrl+h split v
+
+# split in vertical orientation
+bindsym $mod+Ctrl+v split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+set $terms "1: terms"
+set $web "2: web"
+set $file_manager "3: files"
+
+# switch to workspace
+bindsym $mod+1 workspace $terms
+bindsym $mod+2 workspace $web
+bindsym $mod+3 workspace $file_manager
+bindsym $mod+4 workspace 4 
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $terms
+bindsym $mod+Shift+2 move container to workspace $web
+bindsym $mod+Shift+3 move container to workspace $file_manager
+bindsym $mod+Shift+4 move container to workspace 4 
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7 
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+workspace_auto_back_and_forth yes
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
+
+# gaps
+# disable window titlebars
+for_window [class="^.*"] border pixel 0
+
+gaps inner 8
+gaps outer 4 
+
+bindsym $mod+Shift+g gaps inner all set 8; gaps outer all set 4 
+bindsym $mod+Shift+n gaps inner all set 0; gaps outer all set 0
+
+# only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Activate smart borders (always)
+#smart_borders on
+
+# Activate smart borders (only when there are effectively no gaps)
+#smart_borders no_gaps
+
+# Hide edge borders only if there is one window with no gaps
+hide_edge_borders smart_no_gaps
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Catppuccin Mocha colors for i3 bar
+set $bar_color_background            #1e1e2e
+set $bar_color_foreground            #cdd6f4
+set $bar_color_statusline            #cdd6f4
+set $bar_color_separator             #6c7086
+
+# Workspace colors
+set $bar_color_workspace_focused_bg  #89b4fa
+set $bar_color_workspace_focused_fg  #1e1e2e
+
+set $bar_color_workspace_active_bg   #f9e2af
+set $bar_color_workspace_active_fg   #1e1e2e
+
+set $bar_color_workspace_inactive_bg #313244
+set $bar_color_workspace_inactive_fg #cdd6f4
+
+set $bar_color_workspace_urgent_bg   #f38ba8
+set $bar_color_workspace_urgent_fg   #1e1e2e
+
+# Additional recommended color variables for other i3 elements
+set $border_focused                  #89b4fa
+set $border_unfocused                #313244
+set $border_urgent                   #f38ba8
+client.focused          $border_focused   $bar_color_workspace_focused_bg   $bar_color_workspace_focused_fg   $border_focused
+client.focused_inactive $border_unfocused $bar_color_workspace_inactive_bg  $bar_color_workspace_inactive_fg  $border_unfocused
+client.unfocused        $border_unfocused $bar_color_workspace_inactive_bg  $bar_color_workspace_inactive_fg  $border_unfocused
+client.urgent           $border_urgent    $bar_color_workspace_urgent_bg    $bar_color_workspace_urgent_fg    $border_urgent
+
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/dotfiles/i3/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/dotfiles/i3/scripts/brightness.sh down
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command SCRIPTS_DIR=~/.config/i3blocks/scripts i3blocks 
+        position top
+        workspace_buttons yes
+        colors {
+		background   $bar_color_background
+		statusline   $bar_color_statusline
+		separator    $bar_color_separator
+
+		focused_workspace  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_fg
+		active_workspace   $bar_color_workspace_active_bg   $bar_color_workspace_active_bg   $bar_color_workspace_active_fg
+		inactive_workspace $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_fg
+		urgent_workspace   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_fg
+	}
+}
+
+# Review the lines below and append to ~/.config/i3/config
+
+## Volume control
+
+# Path to volume control, without trailing slash
+set $volumepath ~/i3-volume
+
+# Command for the status line
+#   ie: i3blocks, i3status
+set $statuscmd i3status
+
+# Signal used to update the status line
+#   i3blocks uses SIGRTMIN+10 by default
+#   i3status uses SIGUSR1 by default
+set $statussig SIGUSR1
+
+# Amount to increase/decrease volume as a percentage
+set $volumestep 5
+
+# pulseaudio-utils settings
+#
+# Symbolic name for sink (numeric index not supported)
+#   Recommended: comment out this setting and omit the -s option to use default sink
+#   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}'
+#set $sinkname alsa_output.pci-0000_00_1b.0.analog-stereo
+
+# Using pulseaudio-utils (append "-s $sinkname" without quotes to override default sink)
+bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
+bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
+bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
