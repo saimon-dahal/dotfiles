@@ -33,7 +33,7 @@ exec --no-startup-id xinput set-prop "ELAN050D:01 04F3:315A Touchpad" "libinput 
 exec --no-startup-id xinput set-prop "ELAN050D:01 04F3:315A Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Display wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill '/home/saimon-olive/Pictures/backdrops/astro-jelly.jpg'
+exec --no-startup-id feh --no-fehbg --bg-fill '/home/saimon-olive/Pictures/backdrops/street-tn.png'
 
 # Start dunst notification daemon
 exec_always --no-startup-id "killall dunst; dunst -conf $HOME/.config/dotfiles/dunst/dunstrc"
@@ -275,9 +275,17 @@ bar {
 ####################
 
 set $volumepath ~/i3-volume
+set $statuscmd i3status
+set $statussig SIGUSR1
 set $volumestep 5
-set $statuscmd ~/.config/i3blocks/scripts/i3blocks
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up $volumestep
 bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down $volumestep
-bindsym XF86AudioMute exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
+bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
+
+####################
+# Brightness Control 
+####################
+
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/dotfiles/i3/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/dotfiles/i3/scripts/brightness.sh down

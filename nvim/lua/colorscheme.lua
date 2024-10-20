@@ -6,4 +6,4 @@
 --     vim.notify('colorscheme ' .. colorscheme .. ' not found!')
 --     return
 -- end
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd.colorscheme "tokyonight-night"
