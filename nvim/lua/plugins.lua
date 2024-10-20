@@ -53,12 +53,12 @@ require("lazy").setup({
         {'nvim-tree/nvim-web-devicons', enabled=vim.g.have_nerd_font},
 	},
     {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {},
-},
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
+    },
 	{
         "jose-elias-alvarez/null-ls.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -75,13 +75,13 @@ require("lazy").setup({
 		config = function()
 		  require('gitsigns').setup()
 		end
-	  },
-	  {
-		'windwp/nvim-autopairs',
-		event = "InsertEnter",
-		opts = {} -- this is equivalent to setup({}) function
-	  },
-	  {
+	},
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {} -- this is equivalent to setup({}) function
+    },
+    {
         'ThePrimeagen/vim-be-good',
         cmd = "VimBeGood",  -- This makes the plugin load only when you run the command
         config = function()
@@ -91,7 +91,7 @@ require("lazy").setup({
 	{
 		'mg979/vim-visual-multi',
 		branch = 'master'
-	  },
+	},
     {
         "OXY2DEV/markview.nvim",
         lazy = false,      -- Recommended
@@ -112,7 +112,6 @@ require("lazy").setup({
         },
       },
     },
-	-- "tanvirtin/monokai.nvim",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
