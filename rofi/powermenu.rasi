@@ -1,14 +1,9 @@
-/*
- * ROFI Powermenu template
- * Author: @BaptisteBdn
- */
-
 configuration {
     modi: "window,run,drun";
     show-icons: true;
-    font: "Iosevka 10";
+    font: "Hack Nerd Font Mono 10";
     window-format: "{c}";
-    icon-theme: "candy-icons";
+    icon-theme: "Tela-circle-blue";
 }
 
 @import "colors.rasi"

@@ -1,8 +1,8 @@
 configuration {
     modi: "window";
     show-icons: true;
-    font: "Iosevka 10";
-    icon-theme: "candy-icons";
+    font: "Hack Nerd Font Mono 10";
+    icon-theme: "Tela-circle-blue";
     display-window: "";
 	window-format: "{c}";
 }
