@@ -80,6 +80,8 @@ bindsym $mod+Shift+x exec betterlockscreen -l dim
 # Focus Management
 ####################
 
+focus_follows_mouse no 
+
 # Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -182,13 +184,13 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 #################
 
 # Disable window titlebars
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel normal 
 
 # Set gaps
-gaps inner 8
-gaps outer 4 
+gaps inner 12 
+gaps outer 8  
 
-bindsym $mod+Shift+g gaps inner all set 8; gaps outer all set 4 
+bindsym $mod+Shift+g gaps inner all set 12; gaps outer all set 8 
 bindsym $mod+Shift+n gaps inner all set 0; gaps outer all set 0
 
 # Smart gaps
