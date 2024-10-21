@@ -184,7 +184,7 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 #################
 
 # Disable window titlebars
-for_window [class="^.*"] border pixel normal 
+for_window [class="^.*"] border pixel 2  
 
 # Set gaps
 gaps inner 12 
@@ -225,35 +225,36 @@ bindsym $mod+r mode "resize"
 # Bar Configuration
 ####################
 
-# Catppuccin Mocha colors
-set $bar_color_background            #1e1e2e
-set $bar_color_foreground            #cdd6f4
-set $bar_color_statusline            #cdd6f4
-set $bar_color_separator             #6c7086
+# Tokyo Night colors
+set $bar_color_background            #1a1b26
+set $bar_color_foreground            #c0caf5
+set $bar_color_statusline            #c0caf5
+set $bar_color_separator             #565f89
 
 # Workspace colors
-set $bar_color_workspace_focused_bg  #89b4fa
-set $bar_color_workspace_focused_fg  #1e1e2e
+set $bar_color_workspace_focused_bg  #7aa2f7
+set $bar_color_workspace_focused_fg  #1a1b26
 
-set $bar_color_workspace_active_bg   #f9e2af
-set $bar_color_workspace_active_fg   #1e1e2e
+set $bar_color_workspace_active_bg   #e0af68
+set $bar_color_workspace_active_fg   #1a1b26
 
-set $bar_color_workspace_inactive_bg #313244
-set $bar_color_workspace_inactive_fg #cdd6f4
+set $bar_color_workspace_inactive_bg #24283b
+set $bar_color_workspace_inactive_fg #c0caf5
 
-set $bar_color_workspace_urgent_bg   #f38ba8
-set $bar_color_workspace_urgent_fg   #1e1e2e
+set $bar_color_workspace_urgent_bg   #f7768e
+set $bar_color_workspace_urgent_fg   #1a1b26
 
 # Border colors
-set $border_focused                  #89b4fa
-set $border_unfocused                #313244
-set $border_urgent                   #f38ba8
+set $border_focused                  #7aa2f7
+set $border_unfocused                #24283b
+set $border_urgent                   #f7768e
 
 # Client focus settings
 client.focused          $border_focused   $bar_color_workspace_focused_bg   $bar_color_workspace_focused_fg   $border_focused
 client.focused_inactive $border_unfocused $bar_color_workspace_inactive_bg  $bar_color_workspace_inactive_fg  $border_unfocused
 client.unfocused        $border_unfocused $bar_color_workspace_inactive_bg  $bar_color_workspace_inactive_fg  $border_unfocused
 client.urgent           $border_urgent    $bar_color_workspace_urgent_bg    $bar_color_workspace_urgent_fg    $border_urgent
+
 
 # Bar configuration
 bar {
