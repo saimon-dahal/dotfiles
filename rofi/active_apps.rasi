@@ -2,7 +2,7 @@ configuration {
     modi: "run,window,combi";
     show-icons: true;
     font: "Hack Nerd Font Mono 10";
-    terminal: "kitty",
+    terminal: "kitty";
     icon-theme: "Tela-circle-blue";
     display-window: "";
 	window-format: "{c}";
