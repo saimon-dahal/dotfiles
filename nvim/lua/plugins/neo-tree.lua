@@ -1,3 +1,4 @@
+
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -15,7 +16,23 @@ return {
             never_show = { ".git" },
           },
         },
+        default_component_configs = {
+          git_status = {
+            symbols = {
+              added     = "",  -- New files
+              modified  = "",  -- Modified files
+              deleted   = "",  -- Deleted files
+              renamed   = "󰁕",  -- Renamed files
+              untracked = "",  -- Untracked files
+              ignored   = "",  -- Ignored files
+              unstaged  = "󰄱",  -- Unstaged changes
+              staged    = "",  -- Staged changes
+              conflict  = "",  -- Merge conflicts
+            },
+          },
+        },
       })
     end,
   },
 }
+
