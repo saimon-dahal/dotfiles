@@ -27,7 +27,7 @@ return {
                 ignored   = "",
                 unstaged  = "󰄱",
                 staged    = "",
-                conflict  = "", -- Merge conflicts
+                conflict  = "",
             },
           },
         },
