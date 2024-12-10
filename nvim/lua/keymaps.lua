@@ -52,13 +52,13 @@ vim.keymap.set('n', '<Space>e', ':Neotree toggle<CR>', opts)
 local builtin = require('telescope.builtin')
 
 -- Find files
-vim.keymap.set('n', '<Space>sf', builtin.find_files, {})
+vim.keymap.set('n', '<Space>ff', builtin.find_files, {})
 -- Grep (search) in files
-vim.keymap.set('n', '<Space>sg', builtin.live_grep, {})
+vim.keymap.set('n', '<Space>fg', builtin.live_grep, {})
 -- Search in open buffers
-vim.keymap.set('n', '<Space>sb', builtin.buffers, {})
+vim.keymap.set('n', '<Space>fb', builtin.buffers, {})
 -- Search for help tags
-vim.keymap.set('n', '<Space>sh', builtin.help_tags, {})
+vim.keymap.set('n', '<Space>fh', builtin.help_tags, {})
 
 -- Split window
 -- vim.keymap.set('n', '<Space>ss', ':split<Return><C-w>w', opts)
@@ -77,10 +77,6 @@ vim.keymap.set('n', '<C-w><right>', '<C-w>>', opts)
 vim.keymap.set('n', '<C-w><up>', '<C-w>+', opts)
 vim.keymap.set('n', '<C-w><down>', '<C-w>-', opts)
 
--- Better indenting
-vim.keymap.set('v', '<Tab>', '>gv')
-vim.keymap.set('v', '<S-Tab>', '<gv')
-
 -- Find all references
 vim.keymap.set('n', 'g r', ':FindAllReferences<CR>', opts)
 
@@ -88,7 +84,7 @@ vim.keymap.set('n', 'g r', ':FindAllReferences<CR>', opts)
 vim.keymap.set('n', '<Space>q', ':cclose<CR>', opts)
 
 -- Telescope
-vim.keymap.set('n', '<leader>/', function() 
+vim.keymap.set('n', '<leader>/', function()
     builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown{
         windblend = 10,
         previewer = false,
