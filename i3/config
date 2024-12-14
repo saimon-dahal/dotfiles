@@ -38,6 +38,16 @@ exec --no-startup-id feh --no-fehbg --bg-fill '/home/saimon-olive/Pictures/backd
 # Start dunst notification daemon
 exec_always --no-startup-id "killall dunst; dunst -conf $HOME/.config/dotfiles/dunst/dunstrc"
 
+##############
+# lock screen
+##############
+
+exec --no-startup-id xautolock \
+    -time 10 \
+    -locker '~/.config/dotfiles/i3/scripts/lock.sh' \
+    -notify 30 \
+    -notifier "notify-send 'Locking screen in 30 seconds'"
+
 #####################
 # Window Management
 #####################
