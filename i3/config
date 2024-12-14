@@ -50,7 +50,7 @@ for_window [window_role="task_dialog"] floating enable
 floating_modifier $mod
 
 # Keybindings for windows and apps
-bindsym $mod+Return exec flatpak run org.wezfurlong.wezterm
+bindsym $mod+Return exec kitty 
 bindsym $mod+Shift+q kill
 
 ###########################
@@ -71,7 +71,7 @@ bindsym $mod+Shift+p exec rofi -modi 'Powermenu:$rofi/powermenu.sh' -theme "${ro
 ###############################
 
 # Set wallpaper for lock screen
-exec --no-startup-id betterlockscreen -w dim
+exec --no-startup-id betterlockscreen -u '/home/saimon-olive/Pictures/backdrops/5-cm.jpg' && betterlockscreen -w dim
 
 # Lock screen
 bindsym $mod+Shift+x exec betterlockscreen -l dim
