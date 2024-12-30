@@ -41,7 +41,6 @@ vim.keymap.set('v', 'S-j', ':MoveLineDown<CR>', opts)
 -- Visual mode: Move line up (Shift + k)
 vim.keymap.set('v', 'S-k', ':MoveLineUp<CR>', opts)
 
--- Hint: start visual mode with the same area as the previous area and the same mode
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
@@ -52,13 +51,13 @@ vim.keymap.set('n', '<Space>e', ':Neotree toggle<CR>', opts)
 local builtin = require('telescope.builtin')
 
 -- Find files
-vim.keymap.set('n', '<Space>ff', builtin.find_files, {})
+vim.keymap.set('n', '<Space>pf', builtin.find_files, {})
 -- Grep (search) in files
-vim.keymap.set('n', '<Space>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<Space>pg', builtin.live_grep, {})
 -- Search in open buffers
-vim.keymap.set('n', '<Space>fb', builtin.buffers, {})
+vim.keymap.set('n', '<Space>pb', builtin.buffers, {})
 -- Search for help tags
-vim.keymap.set('n', '<Space>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<Space>ph', builtin.help_tags, {})
 
 -- Split window
 -- vim.keymap.set('n', '<Space>ss', ':split<Return><C-w>w', opts)
@@ -78,7 +77,7 @@ vim.keymap.set('n', '<C-w><up>', '<C-w>+', opts)
 vim.keymap.set('n', '<C-w><down>', '<C-w>-', opts)
 
 -- Find all references
-vim.keymap.set('n', 'g r', ':FindAllReferences<CR>', opts)
+vim.keymap.set('n', '<Space>gr', ':FindAllReferences<CR>', opts)
 
 -- Exit references list
 vim.keymap.set('n', '<Space>q', ':cclose<CR>', opts)
