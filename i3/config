@@ -60,7 +60,7 @@ for_window [window_role="task_dialog"] floating enable
 floating_modifier $mod
 
 # Keybindings for windows and apps
-bindsym $mod+Return exec kitty 
+bindsym $mod+Return exec ghostty 
 bindsym $mod+Shift+q kill
 
 ###########################
