@@ -18,7 +18,7 @@
     },
     {
       "type": "command",
-      "key": "   Quote",
+      "key": "   ",
       "keyColor": "38;5;208",
       "text": "~/.config/dotfiles/fastfetch/random_quote.sh"
     },
