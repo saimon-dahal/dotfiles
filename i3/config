@@ -187,7 +187,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 # Picom: Compositor
 ###########################
 
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
+exec_always --no-startup-id killall picom; picom --experimental-backends --backend glx --config ~/.config/picom/picom.conf -b
 
 #################
 # Gaps Settings
