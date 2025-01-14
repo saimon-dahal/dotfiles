@@ -33,7 +33,7 @@ exec --no-startup-id xinput set-prop "ELAN050D:01 04F3:315A Touchpad" "libinput 
 exec --no-startup-id xinput set-prop "ELAN050D:01 04F3:315A Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Display wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill '/home/saimon-olive/Pictures/backdrops/5-cm.jpg'
+exec --no-startup-id feh --no-fehbg --bg-fill '/home/saimon-olive/Pictures/backdrops/final-showdown.jpg'
 
 # Start dunst notification daemon
 exec_always --no-startup-id "killall dunst; dunst -conf $HOME/.config/dotfiles/dunst/dunstrc"
@@ -81,7 +81,7 @@ bindsym $mod+Shift+p exec rofi -modi 'Powermenu:$rofi/powermenu.sh' -theme "${ro
 ###############################
 
 # Set wallpaper for lock screen
-exec --no-startup-id betterlockscreen -u '/home/saimon-olive/Pictures/backdrops/5-cm.jpg' && betterlockscreen -w dim
+exec --no-startup-id betterlockscreen -u '/home/saimon-olive/Pictures/backdrops/final-showdown.jpg' && betterlockscreen -w dim
 
 # Lock screen
 bindsym $mod+Shift+x exec betterlockscreen -l dim
