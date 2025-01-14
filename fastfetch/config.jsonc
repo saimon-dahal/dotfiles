@@ -17,8 +17,10 @@
       "format": ""
     },
     {
-      "type": "custom",
-      "format": "    You Should Cry While You Still Can "
+      "type": "command",
+      "key": "   Quote",
+      "keyColor": "38;5;208",
+      "text": "~/.config/dotfiles/fastfetch/random_quote.sh"
     },
     {
       "type": "custom",
