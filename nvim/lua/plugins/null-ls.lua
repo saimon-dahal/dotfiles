@@ -36,13 +36,13 @@ return {
                     },
                 }),
 
-                null_ls.builtins.diagnostics.pylint.with({
-                    extra_args = {
-                        "--max-line-length=88",
-                        "--disable=C0111", -- Missing docstring
-                        "--disable=C0103", -- Invalid name
-                    },
-                }),
+                -- null_ls.builtins.diagnostics.pylint.with({
+                --     extra_args = {
+                --         "--max-line-length=88",
+                --         "--disable=C0111", -- Missing docstring
+                --         "--disable=C0103", -- Invalid name
+                --     },
+                -- }),
 
                 -- Keep Lua formatting
                 null_ls.builtins.formatting.stylua,

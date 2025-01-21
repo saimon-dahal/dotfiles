@@ -2,8 +2,8 @@ configuration {
     modi: "run,window,combi";
     show-icons: true;
     font: "Hack Nerd Font Mono 10";
-    terminal: "kitty";
-    icon-theme: "Tela-circle-blue";
+    terminal: "Ghostty";
+    icon-theme: "Papirus-Dark";
     display-window: "";
 	window-format: "{c}";
     location: 0;
