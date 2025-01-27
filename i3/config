@@ -68,7 +68,7 @@ bindsym $mod+Shift+q kill
 ###########################
 
 # Launch an app
-bindsym $mod+d exec rofi -no-lazy-grab -show drun -theme "${rofi}/searcher.rasi" -show-icons
+bindsym $mod+d exec rofi -show drun -no-lazy-grab -no-history -matching prefix -drun-match-fields name -no-tokenize -theme "${rofi}/searcher.rasi" -show-icons
 
 # Show active apps
 bindsym $mod+Tab exec rofi -no-lazy-grab -show window -theme "${rofi}/active_apps.rasi" -show-icons
