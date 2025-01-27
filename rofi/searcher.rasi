@@ -15,17 +15,20 @@ configuration {
 
 #window {
     transparency: "real";
-    fullscreen: false;  /* Changed from true to false */
-    width: 45%;        /* Set window width */
-    height: 55%;       /* Set window height */
-    x-offset: 0;       /* Center horizontally */
-    y-offset: 0;       /* Center vertically */
-    location: center;  /* Center the window */
-    border: 2px;      /* Add border */
+    fullscreen: false;
+    width: 45%;
+    height: 55%;
+    x-offset: 0;
+    y-offset: 0;
+    location: center;
+    border: 2px;
     border-color: @selected-bg;
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.85);
     margin: 0px;
+    fixed-height: true;   /* Add this */
+    fixed-width: true;    /* Add this */
+    anchor: center;       /* Add this */
 }
 
 #mainbox {
@@ -120,6 +123,13 @@ element alternate.active {
     background-color: transparent;
     text-color: @fg;
 }
+
+textbox {
+    background-color: transparent;
+    text-color: white;
+    padding: 5px;
+}
+
 
 /* --URGENT-- */
 element normal.urgent {
