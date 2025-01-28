@@ -3,6 +3,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.mouse = "a"
 vim.opt.scrolloff = 10
+vim.g.netrw_browse_split = 0
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

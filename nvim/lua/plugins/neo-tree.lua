@@ -18,6 +18,11 @@ return {
 						visible = true,
 						never_show = { ".git" },
 					},
+					window = {
+						mappings = {
+							["<cr>"] = "open_with_window_picker",
+						},
+					},
 				},
 				default_component_configs = {
 					git_status = {
