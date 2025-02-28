@@ -10,6 +10,8 @@ return {
 		config = function()
 			vim.keymap.set("n", "<Space>e", ":Neotree toggle<CR>", {})
 			require("neo-tree").setup({
+				enable_cursor_hijack = true,
+				hide_root_node = true,
 				window = {
 					width = 30,
 				},
@@ -22,6 +24,9 @@ return {
 						mappings = {
 							["<cr>"] = "open_with_window_picker",
 						},
+					},
+					follow_current_file = {
+						enabled = true,
 					},
 				},
 				default_component_configs = {
