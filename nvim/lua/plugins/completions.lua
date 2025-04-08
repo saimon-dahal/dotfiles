@@ -6,11 +6,6 @@ return {
 
     -- use a release tag to download pre-built binaries
     version = '*',
-    config = function()
-        require('render-markdown').setup({
-            completions = { coq = { enabled = true } },
-        })
-    end,
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config

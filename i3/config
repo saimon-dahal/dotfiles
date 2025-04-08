@@ -42,11 +42,11 @@ exec_always --no-startup-id "killall dunst; dunst -conf $HOME/.config/dotfiles/d
 # lock screen
 ##############
 
-exec --no-startup-id xautolock \
-    -time 10 \
-    -locker "betterlockscreen -l dim" \
-    -notify 30 \
-    -notifier "notify-send 'Locking screen in 30 seconds'"
+# exec --no-startup-id xautolock \
+#     -time 10 \
+#     -locker "betterlockscreen -l dim" \
+#     -notify 30 \
+#     -notifier "notify-send 'Locking screen in 30 seconds'"
 
 #####################
 # Window Management
