@@ -36,3 +36,5 @@ vim.keymap.set("v", "S-k", ":MoveLineUp<CR>", opts)
 
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
+
+vim.keymap.set("n", "<C-a>", "ggVG", opts)
