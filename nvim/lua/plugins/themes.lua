@@ -1,13 +1,18 @@
 return {
-    'projekt0n/github-nvim-theme',
-    name = 'github-theme',
+    "cpea2506/one_monokai.nvim",
+    name = 'one_monokai',
     lazy = false,
     priority = 1000,
     config = function()
-        require('github-theme').setup({
-            -- ...
+        require("one_monokai").setup({
+            transparent = false,
+            colors = {},
+            highlights = function(colors)
+                return {}
+            end,
+            italics = true,
         })
 
-        vim.cmd('colorscheme github_dark_dimmed')
+        vim.cmd('colorscheme one_monokai')
     end,
 }
