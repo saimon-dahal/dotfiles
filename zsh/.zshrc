@@ -31,16 +31,25 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# Plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+autoload -U compinit && compinit
+
 # Initializations
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/dotfiles/starship/starship.toml
 
-eval "$(atuin init zsh)"
+eval "$(fzf --zsh)"
 
 # Completion Styling
 zstyle ":completion:*" matcher-list 'm:{a-z}={A-za-z}'
 eval "$(dircolors -b)"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no 
 
 # aliases
 alias ..="cd ../"
@@ -61,3 +70,5 @@ alias ff=fastfetch
 alias gst="git status"
 alias ga="git add"
 alias gp="git push"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
