@@ -43,3 +43,6 @@ alias ll='ls -A1l'
 alias q=exit
 alias cl=clear
 alias ff=fastfetch
+
+# git aliases
+alias gst="git status"
