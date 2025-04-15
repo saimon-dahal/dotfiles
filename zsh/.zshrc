@@ -46,3 +46,5 @@ alias ff=fastfetch
 
 # git aliases
 alias gst="git status"
+alias ga="git add"
+alias gp="git push"
