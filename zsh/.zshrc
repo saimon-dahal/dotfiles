@@ -1,5 +1,18 @@
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
+# Plugin Manager
+
+# Set the directory to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download Zinit, it it's not there
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+source "${ZINIT_HOME}/zinit.zsh"
+
 # Keybindings
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
