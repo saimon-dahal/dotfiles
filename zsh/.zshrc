@@ -39,17 +39,13 @@ zinit light Aloxaf/fzf-tab
 
 autoload -U compinit && compinit
 
-# Initializations
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.config/dotfiles/starship/starship.toml
-
-eval "$(fzf --zsh)"
 
 # Completion Styling
 zstyle ":completion:*" matcher-list 'm:{a-z}={A-za-z}'
 eval "$(dircolors -b)"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no 
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' 
 
 # aliases
 alias ..="cd ../"
@@ -72,3 +68,10 @@ alias ga="git add"
 alias gp="git push"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Initializations
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/dotfiles/starship/starship.toml
+
+eval "$(zoxide init zsh)"
+eval "$(atuin init zsh)"
