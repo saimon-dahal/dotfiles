@@ -48,6 +48,9 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' 
 
 # aliases
+
+alias rm="echo \"Running rm -I instead for safety\" && rm -I"
+
 alias python=python3
 
 alias ..="cd ../"
