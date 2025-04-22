@@ -6,13 +6,6 @@ interval=once
 color=#6c7086
 markup=pango
 
-# Focused Window
-[focused window]
-command=~/.config/dotfiles/i3blocks/scripts/window_name
-interval=3
-color=#fab387
-markup=none
-
 [separator]
 
 # CPU
@@ -101,11 +94,18 @@ min_width=100%
 [separator]
 
 # Time
-[time-label]
+
+
+[calendar]
+# command=~/.config/i3blocks/scripts/show_calender.sh
 full_text=<span font="12"></span>
+interval=once
 color=#E96969
+markup=pango
 separator=false
 separator_block_width=4
+
+
 
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'

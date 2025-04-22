@@ -1,23 +1,3 @@
-#!/bin/bash
-#
-#  i3-volume
-#
-#  Volume control and volume notifications for i3wm.
-#
-#  Requires:
-#    alsa-utils or pulseaudio-utils
-#    awk (POSIX compatible)
-#
-#  Optional:
-#    A libnotify compatible notification daemon such as notify-osd or dunst
-#    notify-send (libnotify) or dunstify (dunst)
-#
-#  Copyright (c) 2016 Beau Hastings. All rights reserved.
-#  License: GNU General Public License v2
-#
-#  Author: Beau Hastings <beausy@gmail.com>
-#  URL: https://github.com/hastinbe/i3-volume
-
 # Get the backlight as a percentage.
 get_backlight() {
     xbacklight -get | cut -d. -f1
@@ -25,7 +5,6 @@ get_backlight() {
 
 
 # Increase volume relative to current volume.
-#
 # Arguments:
 #   Step        (integer) Percentage to increase by.
 raise_backlight() {
@@ -34,7 +13,6 @@ raise_backlight() {
 
 
 # Decrease volume relative to current volume.
-#
 # Arguments:
 #   Step        (integer) Percentage to decrease by.
 lower_backlight() {
@@ -43,7 +21,6 @@ lower_backlight() {
 
 
 # Set volume.
-#
 # Arguments:
 #   Step        (integer) Percentage to decrease by.
 set_backlight() {
@@ -52,7 +29,6 @@ set_backlight() {
 
 
 # Gets an icon for the provided volume.
-#
 # Arguments:
 #   Volume      (integer) An integer indicating the volume.
 #
