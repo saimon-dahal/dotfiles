@@ -1,14 +1,14 @@
 local opts = {
-	noremap = true,
-	silent = true,
+    noremap = true,
+    silent = true,
 }
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 
 -----------------
@@ -18,10 +18,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.keymap.set("n", "<Space>sv", ":vsplit<Return><C-w>w", opts)
 
 -- Resize window
-vim.keymap.set("n", "<C-w><left>", "<C-w><", opts)
-vim.keymap.set("n", "<C-w><right>", "<C-w>>", opts)
-vim.keymap.set("n", "<C-w><up>", "<C-w>+", opts)
-vim.keymap.set("n", "<C-w><down>", "<C-w>-", opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
 
 -- Exit references list
 vim.keymap.set("n", "<Space>q", ":cclose<CR>", opts)

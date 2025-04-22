@@ -200,7 +200,7 @@ bindsym $mod+Shift+g gaps inner all set 12; gaps outer all set 8
 bindsym $mod+Shift+n gaps inner all set 0; gaps outer all set 0
 
 # Smart gaps
-smart_gaps on
+smart_gaps off 
 
 # Edge borders
 hide_edge_borders smart_no_gaps
