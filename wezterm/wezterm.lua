@@ -1,1 +1,0 @@
-/home/saimon-olive/.wezterm.lua
