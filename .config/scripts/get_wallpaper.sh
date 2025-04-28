@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 
 WALL_DIR="$HOME/Pictures/wallpapers"
