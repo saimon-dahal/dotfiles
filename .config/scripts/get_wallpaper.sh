@@ -5,8 +5,8 @@
 WALL_DIR="$HOME/Pictures/wallpapers"
 PROFILE_DIR="$HOME/Pictures/profile_pictures"
 
-WALL_FILE="red_wallpaper.png"
-PROFILE_FILE="hypr.png"
+WALL_FILE="red_wallpaper.jpg"
+PROFILE_FILE="hypr.jpg"
 
 WALL_PATH="$WALL_DIR/$WALL_FILE"
 PROFILE_PATH="$PROFILE_DIR/$PROFILE_FILE"
