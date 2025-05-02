@@ -12,7 +12,6 @@ show_menu() {
         "hybrid-sleep: Put the system into hybrid-sleep state"
         "suspend-then-hibernate: Suspend and then hibernate"
         "soft-reboot: Perform a soft reboot of userspace"
-        "test: Just echo a test message"
     )
 
     # Display Wofi menu
