@@ -30,13 +30,11 @@ show_menu() {
             ;;
         "lock")
             echo "Locking screen..."
-            # Replace with your lock command
-            # Example: swaylock, hyprlock, etc.
+            wpctl set-mute @DEFAULT_SINK@ 1 && hyprlock
             ;;
         "logout")
             echo "Logging out..."
-            # Replace with your logout command
-            # Example: hyprctl dispatch exit
+            hyprctl dispatch exit
             ;;
         "suspend")
             echo "Suspending the system..."
@@ -57,9 +55,6 @@ show_menu() {
         "soft-reboot")
             echo "Performing a soft reboot of userspace..."
             systemctl soft-reboot
-            ;;
-        "test")
-            echo "This is a test message."
             ;;
         *)
             echo "No valid option selected."
