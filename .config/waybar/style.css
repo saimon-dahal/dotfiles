@@ -15,7 +15,6 @@ window#waybar {
     border-radius: 10px;
 }
 tooltip {
-    background: #1e1e2e;
     opacity: 0.8;
     border-radius: 5px;
     border-width: 2px;
@@ -35,14 +34,11 @@ tooltip label{
 }
 #workspaces button.focused {
     color: #a6adc8;
-    background: #eba0ac;
 }
 #workspaces button.urgent {
     color: #33ccff;;
-    background: #1e1e2e;
 }
 #workspaces button:hover {
-    background: #11111b;
     color: #fdfd96;
 }
 #window,
@@ -106,4 +102,10 @@ tooltip label{
 }
 #custom-gpu-temp {
   color: #fab387;
+}
+
+#custom-gpu-usage,
+#custom-gpu-temp {
+    margin-right: 16px;
+    color: #89dceb;
 }

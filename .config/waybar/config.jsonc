@@ -10,7 +10,6 @@
     "cpu",
     "memory",
     "disk",
-    "disk#2",
     "custom/gpu-usage",
     "custom/gpu-temp",
   ],
@@ -52,26 +51,19 @@
   },
   "cpu": {
     "interval": 10,
-    "format": "   {usage}%",
+    "format": "  {usage}%",
     "max-length": 10,
   },
   "disk": {
     "interval": 30,
-    "format": "ROOT 󰋊 {percentage_used}%",
+    "format": "󰋊 {percentage_used}%",
     "path": "/",
-    "tooltip": true,
-    "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
-  },
-  "disk#2": {
-    "interval": 30,
-    "format": "HOME 󰋊 {percentage_used}%",
-    "path": "/home/mike/",
     "tooltip": true,
     "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
   },
   "memory": {
     "interval": 30,
-    "format": "  {}%",
+    "format": " {}%",
     "max-length": 10,
     "tooltip": true,
     "tooltip-format": "Memory - {used:0.1f}GB used",
@@ -85,19 +77,20 @@
   },
 
     "custom/gpu-usage": {
-      "format": "󰍛 GPU {output}%",
+      "format": "󰍛 GPU {}%",
       "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
       "interval": 5,
-      "return-type": "json",
-      "tooltip": false
+      "return-type": "text",
+      "tooltip": true 
     },
     "custom/gpu-temp": {
-      "format": " {output}°C",
+      "format": " {}°C",
       "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
       "interval": 5,
-      "return-type": "json",
-      "tooltip": false
+      "return-type": "text",
+      "tooltip": true 
     },
+
   "hyprland/workspaces": {
     "format": "{icon}",
     "all-outputs": false,
