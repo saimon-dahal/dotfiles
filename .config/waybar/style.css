@@ -71,7 +71,8 @@ tooltip label {
 #bluetooth:hover,
 #backlight:hover,
 #custom-gpu-usage:hover,
-#custom-gpu-temp:hover {
+#custom-gpu-temp:hover,
+#custom-appmenu:hover {
     border-bottom: 2px solid #88c0d0; /* subtle light blue underline */
 }
 
@@ -100,6 +101,10 @@ tooltip label {
 }
 
 #cpu {
+    margin-left: 5px;
+}
+
+#custom-appmenu {
     margin-left: 16px;
 }
 
