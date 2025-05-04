@@ -1,0 +1,49 @@
+[global]
+    font = "Hack Nerd Font Mono 10"
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = center
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    transparency = 0
+    idle_threshold = 120
+    monitor = 0
+    follow = mouse
+    origin = top-right
+    offset = (13, 12)
+    sticky_history = true 
+    history_length = 30
+    line_height = 2           
+    separator_height = 1
+    padding = 6                
+    horizontal_padding = 10
+    separator_color = "#ffffff" 
+    corner_radius = 10           
+    frame_width = 1
+    frame_color = "#ffffff"
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#000000FF"  # semi-transparent black
+    foreground = "#ffffff"    # white text
+    frame_color = "#ffffffFF"   # minimal white frame
+    timeout = 3
+
+[urgency_normal]
+    background = "#000000FF"
+    foreground = "#ffffff"
+    frame_color = "#ffffffFF"
+    timeout = 5
+
+[urgency_critical]
+    background = "#000000FF"  # less transparent for critical
+    foreground = "#ff6961"    # same as battery.critical
+    frame_color = "#ff6961"
+    timeout = 0
