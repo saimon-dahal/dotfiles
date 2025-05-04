@@ -70,7 +70,6 @@ tooltip label {
 #temperature:hover,
 #bluetooth:hover,
 #backlight:hover,
-#custom-updates:hover,
 #custom-gpu-usage:hover,
 #custom-gpu-temp:hover {
     border-bottom: 2px solid #88c0d0; /* subtle light blue underline */
@@ -91,7 +90,6 @@ tooltip label {
 #workspaces,
 #bluetooth,
 #backlight,
-#custom-updates,
 #custom-gpu-usage,
 #custom-gpu-temp {
     margin-right: 16px;
@@ -124,9 +122,6 @@ tooltip label {
     color: #e92d4d;
 }
 
-#custom-updates {
-    color: #fdfd96;
-}
 
 #backlight,
 #pulseaudio {

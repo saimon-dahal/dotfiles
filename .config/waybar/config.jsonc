@@ -17,7 +17,6 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "custom/updates",
     "backlight",
     "pulseaudio",
     "temperature",
@@ -68,14 +67,6 @@
     "tooltip": true,
     "tooltip-format": "Memory - {used:0.1f}GB used",
   },
-  "custom/updates": {
-    "format": "{}",
-    "exec": "$HOME/dotfiles/.config/waybar/scripts/update-sys.sh",
-    "on-click": "$HOME/dotfiles/.config/waybar/scripts/update-sys.sh update",
-    "interval": 300,
-    "tooltip": true
-  },
-
     "custom/gpu-usage": {
       "format": "󰍛 GPU {}%",
       "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
