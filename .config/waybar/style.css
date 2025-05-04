@@ -1,19 +1,23 @@
 * {
     border: none;
+    border-radius: 0;
     font-family: "Hack Nerd Font", "monospace";
     font-weight: normal;
     font-size: 12px;
     min-height: 0;
+    box-shadow: none;
+    text-shadow: none;
+    transition: none;
 }
+
 window#waybar {
-    background: #1E1E2E;
-    opacity: 0.8;
-    color: #cdd6f4;
-    border-width: 2px;
-    border-color: #33ccff; /* #595959 grigino */
-    border-style: solid;
-    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    opacity: 0.9;
+    border-radius: 30px;
+    border: 1px solid #ffffff;
 }
+
 tooltip {
     opacity: 0.8;
     border-radius: 5px;
@@ -21,26 +25,60 @@ tooltip {
     border-style: solid;
     border-color: #11111b;
 }
-tooltip label{
+
+tooltip label {
     color: #cdd6f4;
 }
+
+/* ---------------------------
+   Workspaces
+--------------------------- */
+#workspaces {
+    padding-left: 5px;
+}
+
 #workspaces button {
-    padding: 5px;
-    color: #a6adc8;
-    margin-right: 5px;
+    color: #ffffff;
+    background: transparent;
+    padding: 0 8px;
+    margin: 0 3px;
+    border-bottom: 2px solid transparent;
 }
+
 #workspaces button.active {
-    color: #0000ff;
+    color: #ffffff;
+    border-bottom: 2px solid #88c0d0; /* light blue */
 }
-#workspaces button.focused {
-    color: #a6adc8;
-}
-#workspaces button.urgent {
-    color: #33ccff;;
-}
+
 #workspaces button:hover {
-    color: #fdfd96;
+    color: #a3be8c; /* light green */
+    background: transparent;
+    border-bottom: 2px solid #a3be8c; /* highlight on hover */
 }
+
+/* ---------------------------
+   Common hover underline for icons
+--------------------------- */
+#window:hover,
+#cpu:hover,
+#disk:hover,
+#memory:hover,
+#clock:hover,
+#battery:hover,
+#pulseaudio:hover,
+#tray:hover,
+#temperature:hover,
+#bluetooth:hover,
+#backlight:hover,
+#custom-updates:hover,
+#custom-gpu-usage:hover,
+#custom-gpu-temp:hover {
+    border-bottom: 2px solid #88c0d0; /* subtle light blue underline */
+}
+
+/* ---------------------------
+   Layout
+--------------------------- */
 #window,
 #cpu,
 #disk,
@@ -53,55 +91,56 @@ tooltip label{
 #workspaces,
 #bluetooth,
 #backlight,
-#cpu,
-#window,
-#custom-updates {
+#custom-updates,
+#custom-gpu-usage,
+#custom-gpu-temp {
     margin-right: 16px;
 }
-#workspaces {
-    padding-left: 5px;
-}
+
 #window {
     margin-right: 20px;
 }
+
 #cpu {
     margin-left: 16px;
 }
-#battery.warning{
-  color: #fdfd96
-}
-#battery.critical{
-  color: #ff6961;
-}
+
+/* ---------------------------
+   Color accents
+--------------------------- */
 #battery {
     color: #02C39A;
 }
+
+#battery.warning {
+    color: #fdfd96;
+}
+
+#battery.critical {
+    color: #ff6961;
+}
+
 #temperature.critical {
     color: #e92d4d;
 }
+
 #custom-updates {
-  color: #fdfd96;
+    color: #fdfd96;
 }
+
 #backlight,
 #pulseaudio {
     color: #89b4fa;
 }
-#custom-mesh {
-    color: #E0BBE4;
-}
+
 #bluetooth {
     color: #a6e3a1;
 }
 
 #custom-gpu-usage {
-  color: #f38ba8;
-}
-#custom-gpu-temp {
-  color: #fab387;
+    color: #f38ba8;
 }
 
-#custom-gpu-usage,
 #custom-gpu-temp {
-    margin-right: 16px;
-    color: #89dceb;
+    color: #fab387;
 }
