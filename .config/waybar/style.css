@@ -101,11 +101,13 @@ tooltip label {
 }
 
 #cpu {
-    margin-left: 5px;
+    margin-left: 12px;
 }
 
 #custom-appmenu {
     margin-left: 16px;
+    font-size: 20px; /* Increase icon size */
+    color: #1793d1;  /* Arch Linux color */
 }
 
 /* ---------------------------

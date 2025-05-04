@@ -27,7 +27,7 @@
     "clock"
   ],
   "custom/appmenu": {
-    "format": "Menu {icon}",
+    "format": "",
     "format-icon": "",
     "rotate": 0,
     "on-click": "$HOME/dotfiles/.config/waybar/scripts/run-wofi.sh"
