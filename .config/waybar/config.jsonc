@@ -92,13 +92,9 @@
     },
 
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{name}",
     "all-outputs": false,
     "on-click": "activate",
-    "format-icons": {
-      "1": "󰣇",
-      "2": ""
-    },
     "sort-by-number": true
   },
   "clock": {
