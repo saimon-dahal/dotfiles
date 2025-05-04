@@ -7,7 +7,7 @@
 
 window {
   border: 1px solid #ffffff;
-  background: rgba(0, 0, 0, 0.6);
+  background-color: rgba(30, 30, 30, 0.35); /* soft deep gray-blue, perfect for blur */
   border-radius: 15px;
 }
 
