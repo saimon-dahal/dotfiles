@@ -24,13 +24,21 @@
     "battery",
     "tray",
     "bluetooth",
-    "clock"
+    "clock",
+    "custom/powermenu"
   ],
   "custom/appmenu": {
     "format": "",
     "format-icon": "",
     "rotate": 0,
     "on-click": "$HOME/dotfiles/.config/waybar/scripts/run-wofi.sh"
+  },
+
+  "custom/powermenu": {
+    "format": "",
+    "format-icon": "",
+    "rotate": 0,
+    "on-click": "$HOME/dotfiles/.config/wofi/scripts/power-menu.sh"
   },
   "tray": {
     "icon-size": 16,

@@ -46,14 +46,14 @@ tooltip label {
 }
 
 #workspaces button.active {
-    color: #ffffff;
-    border-bottom: 2px solid #88c0d0; /* light blue */
+    color: #e0f7fa; /* soft cyan */
+    border-bottom: 2px solid #4fd1c5; /* bright but gentle teal */
 }
 
 #workspaces button:hover {
-    color: #a3be8c; /* light green */
+    color: #c3f3c0; /* pastel green */
     background: transparent;
-    border-bottom: 2px solid #a3be8c; /* highlight on hover */
+    border-bottom: 2px solid #6ee7b7; /* minty accent */
 }
 
 /* ---------------------------
@@ -73,7 +73,7 @@ tooltip label {
 #custom-gpu-usage:hover,
 #custom-gpu-temp:hover,
 #custom-appmenu:hover {
-    border-bottom: 2px solid #88c0d0; /* subtle light blue underline */
+    border-bottom: 3px solid rgba(31, 162, 200, 0.8);
 }
 
 /* ---------------------------
@@ -108,6 +108,14 @@ tooltip label {
     margin-left: 16px;
     font-size: 20px; /* Increase icon size */
     color: #1793d1;  /* Arch Linux color */
+}
+
+#custom-powermenu {
+    margin-right: 20;
+}
+
+#custom-powermenu:hover {
+    border-bottom: 2px solid #f5223e; /* subtle light blue underline */
 }
 
 /* ---------------------------
