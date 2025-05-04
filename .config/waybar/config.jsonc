@@ -165,6 +165,6 @@
     "critical-threshold": 70,
     "format-critical": " {temperatureC}°C",
     "tooltip": true,
-    "interval":10
+    "interval": 5
   }
 }
