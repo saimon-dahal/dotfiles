@@ -56,7 +56,7 @@ alias python=python3
 alias ..="cd ../"
 alias ...="cd ../../"
 
-alias dotfiles="nvim ~/dotfiles"
+alias dotfiles="cd ~/dotfiles && nvim ."
 alias dotrefresh="source ~/.zshrc"
 
 alias ls='ls -h --color=auto --group-directories-first'
