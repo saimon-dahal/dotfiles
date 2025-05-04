@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 # Function to display Wofi menu and execute selected command
