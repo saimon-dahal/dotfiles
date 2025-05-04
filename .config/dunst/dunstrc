@@ -19,10 +19,10 @@
     separator_height = 1
     padding = 6                
     horizontal_padding = 10
-    separator_color = "#ffffff" 
+    separator_color = "#1f1e1f" 
     corner_radius = 10           
     frame_width = 1
-    frame_color = "#ffffff"
+    frame_color = "#1f1e1f"
 
 [shortcuts]
     close = ctrl+space
@@ -31,13 +31,13 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#000000FF"  # semi-transparent black
+    background = "#1f1e1f"  # semi-transparent black
     foreground = "#ffffff"    # white text
-    frame_color = "#ffffffFF"   # minimal white frame
+    frame_color = "#ffffff"   # minimal white frame
     timeout = 3
 
 [urgency_normal]
-    background = "#000000FF"
+    background = "#1f1e1f"
     foreground = "#ffffff"
     frame_color = "#ffffffFF"
     timeout = 5
