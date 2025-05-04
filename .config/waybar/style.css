@@ -55,7 +55,6 @@ tooltip label{
 #backlight,
 #cpu,
 #window,
-#network,
 #custom-updates {
     margin-right: 16px;
 }
@@ -89,9 +88,6 @@ tooltip label{
 }
 #custom-mesh {
     color: #E0BBE4;
-}
-#network {
-    color: #EFBE7D;
 }
 #bluetooth {
     color: #a6e3a1;

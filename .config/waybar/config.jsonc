@@ -18,12 +18,12 @@
   ],
   "modules-right": [
     "custom/updates",
-    "tray",
-    "bluetooth",
     "backlight",
     "pulseaudio",
     "temperature",
     "battery",
+    "tray",
+    "bluetooth",
     "clock"
   ],
   "tray": {
