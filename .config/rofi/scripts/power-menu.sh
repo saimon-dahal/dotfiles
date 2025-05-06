@@ -1,63 +1,62 @@
-
 #!/usr/bin/env bash
 
-# Function to display Wofi menu and execute selected command
+# Function to display Rofi menu and execute selected command
 show_menu() {
     local options=(
-        "reboot: Arr! Let’s set sail once more!"
-        "shutdown: Lower the sails, we're heading to port..."
-        "lock: Batten down the hatches! Locking the ship!"
-        "logout: Walk the plank, ye scurvy dog!"
-        "suspend: Drop anchor and rest the ship..."
-        "hibernate: The crew sleeps 'til the morn..."
-        "hybrid-sleep: Half asleep, half awake..."
-        "suspend-then-hibernate: Rest yer weary bones, then hibernate!"
-        "soft-reboot: A quick wind change and we sail again!"
+        "reboot: New case."
+        "shutdown: Lights out."
+        "lock: File sealed."
+        "logout: Out the door."
+        "suspend: Taking five."
+        "hibernate: Long nap."
+        "hybrid-sleep: Half out."
+        "suspend-then-hibernate: Five, then gone."
+        "soft-reboot: Quick reset."
     )
 
-    # Display Rofi menu
-    selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu | awk -F': ' '{print $2}')
+    # Display Rofi menu and extract command key
+    selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Move?" | awk -F': ' '{print $1}')
 
     # Execute selected command
     case $selected in
         "reboot")
-            echo "Executing command: systemctl reboot"
+            echo "Rebooting — starting a new case..."
             systemctl reboot
             ;;
         "shutdown")
-            echo "Executing command: systemctl poweroff"
+            echo "Lights out — shutting it down."
             systemctl poweroff
             ;;
         "lock")
-            echo "Locking ship's cabin..."
+            echo "Sealing the file — locking screen."
             wpctl set-mute @DEFAULT_SINK@ 2 && hyprlock
             ;;
         "logout")
-            echo "Logging out... Walk the plank!"
+            echo "Case closed — logging out."
             hyprctl dispatch exit
             ;;
         "suspend")
-            echo "Dropping anchor for a quick rest..."
+            echo "Taking five — suspending..."
             systemctl suspend
             ;;
         "hibernate")
-            echo "Put the crew to sleep... until the morning light!"
+            echo "Going dark — hibernating..."
             systemctl hibernate
             ;;
         "hybrid-sleep")
-            echo "Half-awake, half-asleep..."
+            echo "Half out — hybrid sleep mode."
             systemctl hybrid-sleep
             ;;
         "suspend-then-hibernate")
-            echo "Rest now, then we hibernate for the voyage ahead."
+            echo "Five, then gone — suspending then hibernating."
             systemctl suspend-then-hibernate
             ;;
         "soft-reboot")
-            echo "Quick wind change... Soft rebooting!"
+            echo "Quick reset — soft reboot."
             systemctl soft-reboot
             ;;
         *)
-            echo "No valid option selected, Captain."
+            echo "No call made. Case stays open."
             ;;
     esac
 }
