@@ -81,3 +81,4 @@ export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 
+. "$HOME/.local/bin/env"
