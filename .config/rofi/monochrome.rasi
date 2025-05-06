@@ -3,12 +3,8 @@
 * {
     font:   "Hack Nerd Font 12";
 
-    color0:     #1E1E1F;  /* background */
-
     color1:     #C0C0C0;  /* base text */
-
-    color2:     #82A9E8;  /* primary accent */
-    color3:     #09B692;  /* secondary accent */
+    color2:     #1E1E1F;  /* selected bg text */
 
     color4:    #82A9E8;
 
@@ -70,7 +66,7 @@ element alternate active {
 }
 
 element selected {
-    text-color: @color0;
+    text-color: @color1;
 }
 
 element selected normal {
