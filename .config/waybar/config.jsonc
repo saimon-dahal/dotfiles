@@ -31,14 +31,14 @@
     "format": "",
     "format-icon": "",
     "rotate": 0,
-    "on-click": "$HOME/dotfiles/.config/waybar/scripts/run-wofi.sh"
+    "on-click": "$HOME/dotfiles/.config/waybar/scripts/run-rofi.sh"
   },
 
   "custom/powermenu": {
     "format": "",
     "format-icon": "",
     "rotate": 0,
-    "on-click": "$HOME/dotfiles/.config/wofi/scripts/power-menu.sh"
+    "on-click": "$HOME/dotfiles/.config/rofi/scripts/power-menu.sh"
   },
   "tray": {
     "icon-size": 16,
