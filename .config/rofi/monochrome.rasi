@@ -1,17 +1,17 @@
-/* ROFI VERTICAL THEME WITH CUSTOM MONOCHROME ACCENTS */
+/* ROFI VERTICAL THEME — MONOCHROME WITH HARD INVERTED SELECTION */
 
 * {
     font:   "Hack Nerd Font 12";
 
     color1:     #C0C0C0;  /* base text */
-    color2:     #1E1E1F;  /* selected bg text */
+    color2:     #1E1E1F;  /* background */
 
-    color4:    #82A9E8;
+    color4:     #82A9E8;  /* optional accent (e.g. borders, prompt) */
 
-
-    background-color:   transparent;
-    text-color:         @color1;
-    accent-color:       @color2;
+    background-color:           @color2;
+    text-color:                 @color1;
+    selected-text-color:        @color2;  /* flipped for inversion */
+    selected-background-color:  @color1;
 
     margin:     0px;
     padding:    0px;
@@ -19,72 +19,67 @@
 }
 
 window {
-    background-color:   transparent;
-    border-color:       @accent-color;
-
-    location:   center;
-    width:      480px;
-    border:     0px;
-    border-radius: 15px;
+    background-color:   @background-color;
+    border-radius:      12px;
+    location:           center;
+    width:              480px;
 }
 
 inputbar {
-    padding:    8px 12px;
-    spacing:    12px;
-    children:   [ prompt, entry ];
+    padding:            8px 12px;
+    spacing:            12px;
+    children:           [ prompt, entry ];
+    background-color:   @background-color;
 }
 
 prompt, entry, element-text, element-icon {
-    vertical-align: 0.5;
-}
-
-prompt {
-    text-color: @accent-color;
+    vertical-align:     0.5;
 }
 
 listview {
-    lines:      8;
-    columns:    1;
-    fixed-height:   false;
+    lines:              8;
+    columns:            1;
+    fixed-height:       false;
 }
 
 element {
-    padding:    8px;
-    spacing:    8px;
+    padding:            8px;
+    spacing:            8px;
+    border-radius:      6px;
+    text-color:         @text-color;
 }
 
-element normal urgent {
-    text-color: @color4;
-}
-
-element normal active {
-    text-color: @accent-color;
-}
-
+element normal urgent,
+element normal active,
 element alternate active {
-    text-color: @accent-color;
+    text-color:         @text-color;
 }
 
 element selected {
-    text-color: @color1;
+    background-color:   @background-color;
+    text-color:         @text-color;
+    border:             0px;
 }
 
-element selected normal {
-    background-color:   @accent-color;
-}
-
-element selected urgent {
-    background-color:   @color4;
-}
-
+element selected normal,
+element selected urgent,
 element selected active {
-    background-color:   @color2;
+    background-color:   @background-color;
+    text-color:         @color4;
 }
 
 element-icon {
-    size:   0.75em;
+    size:               0.9em;
+    margin:             0px 8px 0px 0px;
+    background-color:   transparent;
+    text-color:         inherit;
+}
+
+element selected element-icon {
+    background-color:   transparent;
+    text-color:         @selected-text-color;
 }
 
 element-text {
-    text-color: inherit;
+    text-color:         inherit;
 }
