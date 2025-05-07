@@ -10,8 +10,7 @@
 
     background-color:           @color2;
     text-color:                 @color1;
-    selected-text-color:        @color2;  /* flipped for inversion */
-    selected-background-color:  @color1;
+    selected-text-color:        @color4;  /* flipped for inversion */
 
     margin:     0px;
     padding:    0px;
@@ -65,7 +64,7 @@ element selected normal,
 element selected urgent,
 element selected active {
     background-color:   @background-color;
-    text-color:         @color4;
+    text-color:         @selected-text-color;
 }
 
 element-icon {
