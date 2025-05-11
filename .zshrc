@@ -67,11 +67,6 @@ alias q=exit
 alias cl=clear
 alias ff=fastfetch
 
-# git aliases
-alias gst="git status"
-alias ga="git add"
-alias gp="git push"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Initializations
