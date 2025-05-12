@@ -1,3 +1,8 @@
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  source ~/.config/hypr/environment.conf
+  exec Hyprland
+fi
+
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # Plugin Manager
