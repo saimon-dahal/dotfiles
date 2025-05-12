@@ -6,7 +6,7 @@ return {
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    themes = "one_monokai",
+                    themes = "kanso",
                     component_separators = { left = "", right = "" },
                     section_separators = { left = "", right = "" },
                     disabled_filetypes = {
