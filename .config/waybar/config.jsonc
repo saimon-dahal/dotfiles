@@ -1,183 +1,217 @@
-{
-  "layer": "top",
-  "position": "top",
-  "height": 41,
-  "margin-top": 5,
-  "margin-left": 20,
-  "margin-right": 20,
-  "margin-bottom": 0,
-  "modules-left": [
-    "custom/appmenu",
-    "cpu",
-    "memory",
-    "disk",
-    "custom/gpu-usage",
-    "custom/gpu-temp"
-  ],
-  "modules-center": [
-    "hyprland/workspaces"
-  ],
-  "modules-right": [
-    "backlight",
-    "pulseaudio",
-    "temperature",
-    "battery",
-    "tray",
-    "bluetooth",
-    "clock",
-    "custom/powermenu"
-  ],
-  "custom/appmenu": {
-    "format": "",
-    "format-icon": "",
-    "rotate": 0,
-    "on-click": "$HOME/dotfiles/.config/waybar/scripts/run-rofi.sh"
-  },
-
-  "custom/powermenu": {
-    "format": "",
-    "format-icon": "",
-    "rotate": 0,
-    "on-click": "$HOME/dotfiles/.config/rofi/scripts/power-menu.sh"
-  },
-  "tray": {
-    "icon-size": 16,
-    "spacing": 10
-  },
-  "bluetooth": {
-    "format": "",
-    "format-connected": "()",
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "sh -c '(blueman-manager)' & disown"
-  },
-  "network": {
-    "format-wifi": "",
-    "format-disconnected": "󱚼",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
-    "on-click": "sh -c '(nm-connection-editor)' & disown"
-  },
-  "hyprland/window": {
-    "format": "({class})"
-  },
-  "cpu": {
-    "interval": 10,
-    "format": "  {usage}%",
-    "max-length": 10
-  },
-  "disk": {
-    "interval": 30,
-    "format": "󰋊 {percentage_used}%",
-    "path": "/",
-    "tooltip": true,
-    "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)"
-  },
-  "memory": {
-    "interval": 30,
-    "format": " {}%",
-    "max-length": 10,
-    "tooltip": true,
-    "tooltip-format": "Memory - {used:0.1f}GB used"
-  },
-  "custom/gpu-usage": {
-    "format": "󰍛 GPU {}%",
-    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
-    "interval": 5,
-    "return-type": "text",
-    "tooltip": true
-  },
-  "custom/gpu-temp": {
-    "format": " {}°C",
-    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
-    "interval": 5,
-    "return-type": "text",
-    "tooltip": true
-  },
-  "hyprland/workspaces": {
-    "format": "{name}",
-    "all-outputs": false,
-    "on-click": "activate",
-    "sort-by-number": true
-  },
-  "clock": {
-    "format": "{:%I:%M %p}",
-    "rotate": 0,
-    "format-alt": "{  %d·%m·%y}",
-    "tooltip-format": "<span>{calendar}</span>",
-    "calendar": {
-      "mode": "month",
-      "format": {
-        "months": "<span color='#ff6699'><b>{}</b></span>",
-        "days": "<span color='#cdd6f4'><b>{}</b></span>",
-        "weekdays": "<span color='#7CD37C'><b>{}</b></span>",
-        "today": "<span color='#ffcc66'><b>{}</b></span>"
-      }
-    }
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}  {percent}%",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "width": 1900,
+    "height": 30,
+    "modules-left": [
+      "custom/appmenu",
+      "cpu",
+      "temperature",
+      "custom/separator",
+      "memory",
+      "disk",
+      "custom/separator",
+      "custom/gpu-usage",
+      "custom/gpu-temp"
     ],
-    "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-",
-    "min-length": 6
-  },
-  "battery": {
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
+    "modules-center": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "backlight",  
+      "custom/separator",
+      "pulseaudio",  
+      "custom/separator",
+      "battery",
+      "custom/separator",
+      "power-profiles-daemon",
+      "custom/separator",
+      "network",
+      "custom/separator",
+      "bluetooth",
+      "custom/separator",
+      "clock",
+      "custom/weather",
+      "custom/separator",
+      "custom/notification",
+      "custom/separator",
+      "custom/powermenu"
+    ],
+    "custom/appmenu": {
+      "format": "",
+      "format-icon": "",
+      "rotate": 0,
+      "on-click": "$HOME/dotfiles/.config/waybar/scripts/run-rofi.sh"
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon} {time}",
-    "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ]
-  },
-  "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "",
-    "on-click": "pamixer -t",
-    "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -i 5",
-    "on-scroll-down": "pamixer -d 5",
-    "scroll-step": 5,
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "default": [
-        "",
-        "",
-        ""
+    "custom/separator": {
+      "format": "|",
+      "interval": "once",
+      "tooltip": false
+    },
+    "cpu": {
+      "interval": 10,
+      "format": "  {usage}%",
+      "max-length": 10
+    },
+    "memory": {
+      "interval": 30,
+      "format": " {}%",
+      "max-length": 10,
+      "tooltip": true,
+      "tooltip-format": "Memory - {used:0.1f}GB used"
+    },
+    "disk": {
+      "interval": 30,
+      "format": "󰋊 {percentage_used}%",
+      "path": "/",
+      "tooltip": true,
+      "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)"
+    },
+    "temperature": {
+      "thermal-zone": 6,
+      "format": " {temperatureC}°C",
+      "critical-threshold": 70,
+      "format-critical": " {temperatureC}°C",
+      "tooltip": true,
+      "interval": 5
+    },
+    "custom/gpu-usage": {
+      "format": "󰍛 GPU",
+      "exec": "$HOME/dotfiles/.config/waybar/scripts/gpu-usage.sh",
+      "interval": 10,
+      "return-type": "text",
+      "tooltip": true,
+      "tooltip-format": "{}"
+    },
+    "custom/gpu-temp": {
+      "format": " {}°C",
+      "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+      "interval": 5,
+      "return-type": "text",
+      "tooltip": true
+    },
+    "custom/weather": {
+      "format": "{}",
+      "tooltip": true,
+      "interval": 3600,
+      "exec": "$HOME/dotfiles/.config/waybar/scripts/waybar-wttr.py",
+      "return-type": "json"
+    },
+    "custom/powermenu": {
+      "format": "",
+      "format-icon": "",
+      "rotate": 0,
+      "on-click": "$HOME/dotfiles/.config/rofi/scripts/power-menu.sh"
+    },
+     "network": {
+      "format": " ",
+      "tooltip": true,
+      "tooltip-format": "{ifname}\n↓ {bandwidthDownBits} b/s\n↑ {bandwidthUpBits} b/s",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%)\n↓ {bandwidthDownBits} b/s\n↑ {bandwidthUpBits} b/s",
+      "tooltip-format-ethernet": "{ifname}\n↓ {bandwidthDownBits} b/s\n↑ {bandwidthUpBits} b/s",
+      "tooltip-format-disconnected": "Disconnected",
+      "exec-if": "which nmcli",
+      "exec": "nmcli -t -f DEVICE,STATE dev status",
+      "on-click": "iwgtk",
+      "interval": 1
+    },
+    "bluetooth": {
+      "format": "",
+      "format-connected": "()",
+      "tooltip-format": "{controller_alias}\t{controller_address}",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate      }",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "on-click": "blueberry"
+    },
+    "battery": {
+      "states": {
+        "good": 95,
+        "warning": 30,
+        "critical": 20
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-icons": [
+        "󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"
       ]
+    },
+    "backlight": {
+      "device": "nvidia_wmi_ec_backlight",
+      "format": "{icon}  {percent}%",
+      "format-icons": ["󰃞","󰃟","󰃠"],
+      "on-scroll-up": "brightnessctl set 5%+",
+      "on-scroll-down": "brightnessctl set 5%-",
+      "min-length": 6
+    },
+    "pulseaudio": {
+      "format": "{icon}  {volume}%",
+      "format-muted": " ",
+      "on-click": "pamixer -t",
+      "on-click-right": "pavucontrol",
+      "on-scroll-up": "pamixer -i 5",
+      "on-scroll-down": "pamixer -d 5",
+      "scroll-step": 5,
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "default": [""]
+      }
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": " ",
+        "power-saver": " "
+      }
+    },
+    "clock": {
+      "format": "{:%I:%M:%S %p}",
+      "rotate": 0,
+      "interval": 1,
+      "format-alt": "{  %d·%m·%y}",
+      "tooltip-format": "<span>{calendar}</span>",
+      "calendar": {
+        "mode": "month",
+        "format": {
+          "months": "<span color='#8FBCBB'><b>{}</b></span>",
+          "days": "<span color='#D8DEE9'><b>{}</b></span>",
+          "weekdays": "<span color='#88C0D0'><b>{}</b></span>",
+          "today": "<span color='#BF616A'><b>{}</b></span>"
+        }
+      }
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span><span foreground='red'><small><sup>⬤ </sup></small></span></span>",
+        "none": "<span> </span>",
+        "dnd-notification": "<span> <span foreground='red'><small><sup>⬤</sup></small></span></span>",
+        "dnd-none": "<span> </span>"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "sleep 0.1 && swaync-client -t -sw",
+      "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+      "escape": true
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "all-outputs": false,
+      "on-click": "activate",
+      "sort-by-number": true
+    },
+    "hyprland/window": {
+      "format": "({class})"
     }
-  },
-  "temperature": {
-    "thermal-zone": 6,
-    "format": " {temperatureC}°C",
-    "critical-threshold": 70,
-    "format-critical": " {temperatureC}°C",
-    "tooltip": true,
-    "interval": 5
   }
-}
+]

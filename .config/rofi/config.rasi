@@ -26,5 +26,5 @@ configuration {
 }
 
 
-@theme ".config/rofi/monochrome.rasi"
+@theme ".config/rofi/arch_themed.rasi"
 

@@ -31,19 +31,19 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#1f1e1f"  # semi-transparent black
-    foreground = "#ffffff"    # white text
-    frame_color = "#ffffff"   # minimal white frame
+    background = "#1f1e1f"
+    foreground = "#ffffff"
+    frame_color = "#07B591"  # mint accent
     timeout = 3
 
 [urgency_normal]
     background = "#1f1e1f"
     foreground = "#ffffff"
-    frame_color = "#ffffffFF"
+    frame_color = "#07B591"  # mint accent
     timeout = 5
 
 [urgency_critical]
-    background = "#000000FF"  # less transparent for critical
-    foreground = "#ff6961"    # same as battery.critical
+    background = "#1f1e1f"
+    foreground = "#ff6961"   # critical red
     frame_color = "#ff6961"
     timeout = 0

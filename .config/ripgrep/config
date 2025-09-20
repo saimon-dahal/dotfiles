@@ -1,0 +1,12 @@
+
+--hidden
+--no-ignore
+--glob
+!**/.git/*
+--glob=!**/.venv/*
+--glob=!**/env/*
+--glob=!**/__pycache__/*
+--glob=!**/.ruff_cache/*
+--glob=!**/.mypy_cache/*
+--glob=!**/.pytest_cache/*
+--glob=!**uv.lock*

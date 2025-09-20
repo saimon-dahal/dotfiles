@@ -1,64 +1,73 @@
+/* ======================================================
+   Reset & Base Styles
+======================================================= */
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "Hack Nerd Font", "monospace";
-    font-weight: normal;
-    font-size: 12px;
-    min-height: 0;
-    box-shadow: none;
-    text-shadow: none;
-    transition: none;
+  border: none;
+  border-radius: 0;
+  font-family: "CaskaydiaMono Nerd Font", "monospace";
+  font-weight: normal;
+  font-size: 12px;
+  min-height: 0;
+  box-shadow: none;
+  text-shadow: none;
+  transition: none;
+}
+
+/* ======================================================
+   Window & Tooltip Styling
+======================================================= */
+window#waybar,
+tooltip {
+  border-radius: 30px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.6);
-    color: #ffffff;
-    opacity: 0.9;
-    border-radius: 30px;
-    border: 1px solid #ffffff;
+  background: rgba(40, 40, 40, 0.7);
+  opacity: 1;
 }
 
 tooltip {
-    opacity: 0.8;
-    border-radius: 5px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 1;
+  border-color: #11111b;
 }
 
 tooltip label {
-    color: #cdd6f4;
+  color: #cdd6f4;
 }
 
-/* ---------------------------
+/* ======================================================
    Workspaces
---------------------------- */
+======================================================= */
 #workspaces {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
 #workspaces button {
-    color: #ffffff;
-    background: transparent;
-    padding: 0 8px;
-    margin: 0 3px;
-    border-bottom: 2px solid transparent;
+  color: #ffffff;
+  background: transparent;
+  padding: 0 8px;
+  margin: 0 3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
 #workspaces button.active {
-    color: #e0f7fa; /* soft cyan */
-    border-bottom: 2px solid #4fd1c5; /* bright but gentle teal */
+  color: #e0f7fa;            /* soft cyan */
+  border-bottom: 2px solid #4fd1c5; /* bright teal */
 }
 
 #workspaces button:hover {
-    color: #c3f3c0; /* pastel green */
-    background: transparent;
-    border-bottom: 2px solid #6ee7b7; /* minty accent */
+  color: #c3f3c0;            /* pastel green */
+  border-bottom: 2px solid #6ee7b7; /* mint accent */
+  background: transparent;
 }
 
-/* ---------------------------
-   Common hover underline for icons
---------------------------- */
+/* ======================================================
+   Hover underline for interactive modules
+======================================================= */
 #window:hover,
 #cpu:hover,
 #disk:hover,
@@ -72,85 +81,110 @@ tooltip label {
 #backlight:hover,
 #custom-gpu-usage:hover,
 #custom-gpu-temp:hover,
-#custom-appmenu:hover {
-    border-bottom: 3px solid rgba(31, 162, 200, 0.8);
+#custom-appmenu:hover,
+#custom-powermenu:hover,
+#custom-weather:hover,
+#custom-notification:hover,
+#custom-cava:hover {
+  border-bottom: 3px solid rgba(31, 162, 200, 0.8);
+  transition: border-bottom-color 0.2s ease;
 }
 
-/* ---------------------------
-   Layout
---------------------------- */
-#window,
-#cpu,
-#disk,
-#memory,
-#clock,
-#battery,
-#pulseaudio,
-#tray,
-#temperature,
-#workspaces,
-#bluetooth,
-#backlight,
-#custom-gpu-usage,
-#custom-gpu-temp {
-    margin-right: 16px;
-}
-
+/* ======================================================
+   Layout & Spacing
+======================================================= */
 #window {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 #cpu {
-    margin-left: 12px;
+  margin: 0 12px;
 }
 
 #custom-appmenu {
-    margin-left: 16px;
-    font-size: 20px; /* Increase icon size */
-    color: #1793d1;  /* Arch Linux color */
+  margin-left: 16px;
+  font-size: 20px;
+  color: #1793d1;  /* Arch blue */
 }
 
 #custom-powermenu {
-    margin-right: 20;
+  margin-right: 20px;
 }
 
-#custom-powermenu:hover {
-    border-bottom: 2px solid #f5223e; /* subtle light blue underline */
+#custom-separator{
+    margin-right: 6px;
+    margin-left: 6px;
 }
 
-/* ---------------------------
-   Color accents
---------------------------- */
+#memory,
+#custom-gpu-usage,
+#clock{
+    margin-right: 10px;
+}
+#custom-notification{
+    margin-right: -6px;
+}
+/* ======================================================
+   Module Colors
+======================================================= */
 #battery {
-    color: #02C39A;
+  color: #02C39A;
 }
-
 #battery.warning {
-    color: #fdfd96;
+  color: #fdfd96;
 }
-
 #battery.critical {
-    color: #ff6961;
+  color: #ff6961;
 }
-
 #temperature.critical {
-    color: #e92d4d;
+  color: #e92d4d;
 }
-
-
 #backlight,
 #pulseaudio {
-    color: #89b4fa;
+  color: #89b4fa;
 }
-
 #bluetooth {
-    color: #a6e3a1;
+  color: #a6e3a1;
 }
-
 #custom-gpu-usage {
-    color: #f38ba8;
+  color: #f38ba8;
+}
+#custom-gpu-temp {
+  color: #fab387;
 }
 
-#custom-gpu-temp {
-    color: #fab387;
+/* ======================================================
+   Backlight Slider Styling
+======================================================= */
+#backlight-slider slider {
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#backlight-slider trough {
+  min-height: 4px;
+  min-width: 100px;
+  border-radius: 0;
+  background-image: linear-gradient(to right, #4fd1c5 2px, transparent 2px);
+  background-size: 6px 100%;
+  background-repeat: repeat-x;
+  background-color: transparent;
+}
+
+#backlight-slider highlight {
+  background-color: #4fd1c5;
+  min-height: 4px;
+  border-radius: 0;
+}
+
+/* ======================================================
+   User Module
+======================================================= */
+#user {
+  margin-left: 4px;
+  margin-right: 6px;
 }

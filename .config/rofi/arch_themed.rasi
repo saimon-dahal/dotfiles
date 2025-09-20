@@ -1,25 +1,32 @@
-/* ROFI VERTICAL THEME — MONOCHROME WITH HARD INVERTED SELECTION */
+
+/* ROFI VERTICAL THEME — NORD PALETTE VERSION */
+
 
 * {
-    font:   "Hack Nerd Font 12";
+    font: "CaskaydiaMono Nerd Font 14";
 
-    color1:     #C0C0C0;  /* base text */
-    color2:     #1E1E1F;  /* background */
+    /* Arch-inspired palette */
+    color1: #ffffff;   /* base text */
+    color2: #202020;   /* background */
+    color3: #11111b;   /* darker background / borders */
+    color4: #07B591;   /* highlight / selected text */
+    color5: #6ee7b7;   /* accent / mint */
 
-    color4:     #82A9E8;  /* optional accent (e.g. borders, prompt) */
+    background-color: @color2;
+    text-color: @color1;
+    selected-text-color: @color4;
 
-    background-color:           @color2;
-    text-color:                 @color1;
-    selected-text-color:        @color4;  /* flipped for inversion */
-
-    margin:     0px;
-    padding:    0px;
-    spacing:    0px;
+    margin: 0px;
+    padding: 0px;
+    spacing: 0px;
 }
+
 
 window {
     background-color:   @background-color;
-    border-radius:      12px;
+    border-radius:      5px;
+    border:             0px;
+    border-color:       @color5;
     location:           center;
     width:              480px;
 }
@@ -55,7 +62,7 @@ element alternate active {
 }
 
 element selected {
-    background-color:   @background-color;
+    background-color:   @color3;
     text-color:         @text-color;
     border:             0px;
 }

@@ -2,7 +2,7 @@
 
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
@@ -32,54 +32,58 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 [opener]
 edit = [
     { run = 'cd "$(dirname "$1")" && nvim "$1"', block = true, desc = "nvim", for = "unix" },
-    # { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-    { run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
-    { run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
 ]
+
 open = [
-    { run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
-    { run = 'open "$@"',                    desc = "Open", for = "macos" },
-    { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+    { run = 'xdg-open "$1"', desc = "Open", for = "linux" },
 ]
+
 reveal = [
-    { run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
-    { run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
-    { run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
+    { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
     { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]
+
 extract = [
     { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-    { run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
 ]
+
 play = [
-    { run = 'mpv --force-window "$@"', orphan = true, desc = "MPV", for = "unix" },
     { run = 'vlc "$@"', orphan = true, desc = "VLC", for = "unix" },
-    { run = 'mpv --force-window %*', orphan = true, desc = "MPV", for = "windows" },
-    { run = 'vlc %*', orphan = true, desc = "VLC", for = "windows" },
     { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+]
+
+images = [
+    { run = 'nomacs "$@"', orphan = true, desc = "Nomacs", for = "unix", mime = "image/*" },
+]
+
+pdf = [
+    { run = 'firefox "$1"', orphan = true, desc = "Firefox PDF", for = "unix", mime = "application/pdf" },
 ]
 
 [open]
 rules = [
-	# Folder
-	{ name = "*/", use = [ "edit", "open", "reveal" ] },
-	# Text
-	{ mime = "text/*", use = [ "edit", "reveal" ] },
-	# Image
-	{ mime = "image/*", use = [ "open", "reveal" ] },
-	# Media
-	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
-	# Archive
-	{ mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
-	{ mime = "application/{tar,bzip*,7z*,xz,rar}", use = [ "extract", "reveal" ] },
-	# JSON
-	{ mime = "application/{json,ndjson}", use = [ "edit", "reveal" ] },
-	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
-	# Empty file
-	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
-	# Fallback
-	{ name = "*", use = [ "open", "reveal" ] },
+    # Folder
+    { name = "*/", use = [ "edit", "open", "reveal" ] },
+    # Text
+    { mime = "text/*", use = [ "edit", "reveal" ] },
+    # Image
+    { mime = "image/*", use = [ "images", "reveal" ] },
+    # Media
+    { mime = "{audio,video}/*", use = [ "play", "reveal" ] },
+    # PDF
+    { mime = "application/pdf", use = [ "pdf", "reveal" ] },
+    # Archive
+    { mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
+    { mime = "application/{tar,bzip*,7z*,xz,rar}", use = [ "extract", "reveal" ] },
+    # JSON
+    { mime = "application/{json,ndjson}", use = [ "edit", "reveal" ] },
+    { mime = "*/javascript", use = [ "edit", "reveal" ] },
+    # Empty file
+    { mime = "inode/empty", use = [ "edit", "reveal" ] },
+    # Fallback
+    { name = "*", use = [ "open", "reveal" ] },
 ]
+
 
 [tasks]
 micro_workers    = 10
@@ -217,3 +221,8 @@ sort_by      	 = "none"
 sort_sensitive = false
 sort_reverse 	 = false
 sort_translit  = false
+
+[log]
+enabled = true
+level = "debug"
+file = "~/.local/state/yazi/yazi.log"

@@ -2,7 +2,7 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.8",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = { "nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim" },
         config = function()
             local telescope = require("telescope")
             local actions = require("telescope.actions")
@@ -31,6 +31,7 @@ return {
             vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
             vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
             vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+            require("telescope").load_extension("undo")
         end,
     },
     {

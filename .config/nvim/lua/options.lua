@@ -1,46 +1,47 @@
-vim.opt.swapfile = false
-vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.opt.mouse = "a"
-vim.opt.scrolloff = 10
+vim.o.swapfile = false
+vim.o.clipboard = "unnamedplus"
+vim.o.mouse = "a"
+vim.o.scrolloff = 10
 vim.g.netrw_browse_split = 0
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.cursorline = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.showmode = false
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.cursorline = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.showmode = false
 
-vim.opt.incsearch = true
-vim.opt.hlsearch = false
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.o.incsearch = true
+vim.o.hlsearch = false
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
-vim.opt.fillchars:append({ vert = "│" })
+vim.o.autowrite = true
+vim.o.autowriteall = true
 
-vim.opt.autowrite = true
-vim.opt.autowriteall = true
+vim.o.cursorcolumn = true
 
-vim.opt.cursorcolumn = true
+vim.o.winblend = 15
+vim.o.pumblend = 15
+vim.o.termguicolors = true
 
-vim.opt.winblend = 15
-vim.opt.pumblend = 15
-vim.opt.termguicolors = true
+vim.o.showmode = false
 
-vim.opt.showmode = false
+vim.o.signcolumn = "yes"
 
-vim.opt.signcolumn = "yes"
+vim.o.updatetime = 250
 
-vim.opt.updatetime = 250
+vim.o.timeoutlen = 300
 
-vim.opt.timeoutlen = 300
+vim.o.winborder = "rounded"
 
 vim.opt.fillchars:append({ eob = " " })
+vim.opt.fillchars:append({ vert = "│" })
+vim.opt.completeopt = { "menuone", "noselect", "popup" }

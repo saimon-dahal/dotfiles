@@ -1,0 +1,277 @@
+/* ================================
+   Color Variables (Nord-based)
+================================ */
+@define-color cc-bg #1f1e1f;
+@define-color noti-border-color #07B591;
+@define-color noti-bg #1f1e1f;
+@define-color noti-bg-darker #11111b;
+@define-color noti-bg-hover #11111b;
+@define-color noti-bg-focus #11111b;
+@define-color noti-close-bg #07B591;
+@define-color noti-close-bg-hover #07B591;
+@define-color text-color #ffffff;
+@define-color text-color-disabled #7c7684;
+@define-color bg-selected #07B591;
+@define-color red-base #ff6961;
+@define-color red-hover #ff4c4c;
+@define-color green-base #07B591;
+@define-color blue-base #4fd1c5;
+
+/* ================================
+   Base Styles
+================================ */
+* {
+  font-family: "CaskaydiaMono Nerd Font Mono", monospace;
+  font-size: 15px;
+  border-radius: 0;
+}
+
+/* ================================
+   Hover Highlight for Notifications
+================================ */
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+  opacity: 1;
+  background: @noti-bg-darker;
+}
+
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   Unified Widget Element Reset
+================================ */
+.notification,
+.notification-content,
+.notification-action,
+.notification-default-action,
+.inline-reply-entry,
+.inline-reply-button,
+.widget-title,
+.widget-title > button,
+.widget-dnd,
+.widget-dnd > switch,
+.widget-dnd > switch slider,
+.widget-label > label,
+.widget-buttons-grid,
+.widget-buttons-grid > flowbox > flowboxchild > button,
+.widget-volume,
+.widget-backlight,
+.widget-mpris,
+.widget-mpris > box > button,
+.widget-mpris-player,
+.widget-mpris-album-art {
+  border-radius: 0;
+}
+
+/* ================================
+   Notification Card
+================================ */
+.notification {
+  background: @cc-bg;
+  border: 2px solid @border-green;
+  margin: 3px -2px 3px 0;
+}
+
+/* ================================
+   Close Button
+================================ */
+.close-button {
+  background: @red-base;
+  color: @cc-bg;
+  padding: 0;
+  margin-top: 5px;
+  margin-right: 5px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border: none;
+}
+
+.notification:hover .close-button {
+  opacity: 1;
+}
+
+.close-button:hover {
+  background: @red-hover;
+  transition: all 0.15s ease-in-out;
+}
+
+/* ================================
+   Actions
+================================ */
+.notification-action {
+  border: 2px solid @border-green;
+  border-top: none;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  color: @blue-base;
+  background: @cc-bg;
+}
+
+/* ================================
+   Inline Replies
+================================ */
+.inline-reply-entry {
+  background: @noti-bg-darker;
+  color: @text-color;
+  caret-color: @text-color;
+  border: 1px solid @noti-border-color;
+  font-size: 1rem;
+}
+
+.inline-reply-button {
+  margin-top: 4px;
+  margin-left: 4px;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
+  color: @text-color;
+  font-size: 1rem;
+}
+
+.inline-reply-button:disabled {
+  background: transparent;
+  color: @text-color-disabled;
+  border: 1px solid transparent;
+}
+
+.inline-reply-button:hover {
+  background: @noti-bg-hover;
+}
+
+/* ================================
+   Notification Content
+================================ */
+.summary {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: @green-base;
+  background: transparent;
+}
+
+.time {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: @text-color;
+  margin-right: 18px;
+}
+
+.body {
+  font-size: 1rem;
+  font-weight: 400;
+  color: @text-color;
+}
+
+/* ================================
+   Control Center Container
+================================ */
+.control-center {
+  background: @cc-bg;
+  border: 2px solid @border-green;
+}
+
+/* ================================
+   Widgets
+================================ */
+.widget-title {
+  color: @blue-base;
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 10px;
+  font-size: 1.4rem;
+}
+
+.widget-title > button {
+  font-size: 1rem;
+  color: @text-color;
+  background: @noti-bg;
+}
+
+.widget-title > button:hover {
+  background: @red-base;
+  color: @cc-bg;
+}
+
+.widget-dnd {
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  font-size: 1.rem;
+  color: @blue-base;
+}
+
+.widget-dnd > switch {
+  background: @blue-base;
+}
+
+.widget-dnd > switch:checked {
+  background: @red-base;
+  border: 1px solid @red-base;
+}
+
+.widget-label > label {
+  font-size: 1rem;
+  color: @text-color;
+  margin: 10px;
+}
+
+/* ================================
+   Buttons Grid
+================================ */
+.widget-buttons-grid {
+  font-size: 1.4rem;
+  padding: 5px;
+  margin: 10px;
+  background: @noti-bg-darker;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin: 3px;
+  background: @cc-bg;
+  color: @text-color;
+  transition: background-color 0.15s ease-in-out;
+  font-size: 1.2rem;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @blue-base;
+  color: @cc-bg;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  background: @green-base;
+  color: @cc-bg;
+}
+
+/* ================================
+   Sliders: Volume & Brightness
+================================ */
+.widget-volume,
+.widget-backlight {
+  background: @noti-bg-darker;
+  padding: 5px;
+  margin: 5px 10px;
+  font-size: 1.5rem;
+  color: @blue-base;
+}
+
+/* ================================
+   MPRIS Player
+================================ */
+.widget-mpris {
+  color: @text-color;
+  background: @noti-bg-darker;
+  padding: 5px 10px;
+  margin: 5px 10px;
+}
+
+.widget-mpris > box > button,
+.widget-mpris-player,
+.widget-mpris-album-art {
+  padding: 5px 10px;
+  margin: 10px 0 0 0;
+}
