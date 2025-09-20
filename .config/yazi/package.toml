@@ -1,4 +1,12 @@
+[plugin]
+deps = []
+
 [[flavor.deps]]
 use = "AdithyanA2005/nord"
 rev = "3a791e9"
 hash = "fa7142cda74a50b271ea212356b40b57"
+
+[[flavor.deps]]
+use = "marcosvnmelo/kanagawa-dragon"
+rev = "4905527"
+hash = "5fd7aa0bf4e7d9753ad8a4660a6eb94f"
