@@ -3,8 +3,8 @@
 # Function to display Rofi menu and execute selected command
 show_menu() {
     local options=(
-        "reboot: New case."
         "shutdown: Lights out."
+        "reboot: New case."
         "lock: File sealed."
         "logout: Out the door."
         "suspend: Taking five."
