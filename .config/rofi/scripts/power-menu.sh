@@ -8,9 +8,6 @@ show_menu() {
         "lock: File sealed."
         "logout: Out the door."
         "suspend: Taking five."
-        "hibernate: Long nap."
-        "hybrid-sleep: Half out."
-        "suspend-then-hibernate: Five, then gone."
         "soft-reboot: Quick reset."
     )
 
@@ -39,18 +36,6 @@ show_menu() {
             echo "Taking five — suspending..."
             systemctl suspend
             ;;
-        "hibernate")
-            echo "Going dark — hibernating..."
-            systemctl hibernate
-            ;;
-        "hybrid-sleep")
-            echo "Half out — hybrid sleep mode."
-            systemctl hybrid-sleep
-            ;;
-        "suspend-then-hibernate")
-            echo "Five, then gone — suspending then hibernating."
-            systemctl suspend-then-hibernate
-            ;;
         "soft-reboot")
             echo "Quick reset — soft reboot."
             systemctl soft-reboot
@@ -60,6 +45,4 @@ show_menu() {
             ;;
     esac
 }
-
-# Call function to show menu
 show_menu
