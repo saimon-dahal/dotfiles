@@ -16,7 +16,7 @@
 /* ======================================================
    Window & Tooltip Styling
 ======================================================= */
-window#waybar,
+
 tooltip {
   border-radius: 15px;
   border: 1px solid #ffffff;
@@ -24,7 +24,12 @@ tooltip {
 }
 
 window#waybar {
-  background: rgba(40, 40, 40, 0.7);
+  background: linear-gradient(
+    to right,
+    rgba(20, 20, 20, 0.95) 0%,    /* left near-black */
+    rgba(40, 40, 40, 0.95) 50%,   /* middle gray */
+    rgba(20, 20, 20, 0.95) 100%   /* right near-black */
+  );
   opacity: 1;
 }
 

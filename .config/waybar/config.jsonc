@@ -2,7 +2,6 @@
   {
     "layer": "top",
     "position": "top",
-    "width": 1900,
     "height": 30,
     "modules-left": [
       "custom/appmenu",
