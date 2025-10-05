@@ -32,21 +32,22 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 local cmp_lsp = require("cmp_nvim_lsp")
 capabilities = cmp_lsp.default_capabilities(capabilities)
 
-local lspconfig = require("lspconfig")
-
-lspconfig.pyright.setup({
-	capabilities = capabilities,
-	root_dir = lspconfig.util.root_pattern(".git", "pyproject.toml"),
+vim.lsp.config("*", {
+	root_markers = { ".git", ".hg" },
 })
 
-lspconfig.lua_ls.setup({
+vim.lsp.config("pyright", {
 	capabilities = capabilities,
-	root_dir = lspconfig.util.root_pattern(".git"),
+	root_markers = { ".git", ".pyproject.toml" },
+})
+vim.lsp.config("lua_ls", {
+	capabilities = capabilities,
+	root_markers = { ".git" },
 })
 
-lspconfig.gopls.setup({
+vim.lsp.config("gopls", {
 	capabilities = capabilities,
-	root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+	root_markers = { "go.work", "go.mod", ".git" },
 })
 
 -- LSP keymaps
