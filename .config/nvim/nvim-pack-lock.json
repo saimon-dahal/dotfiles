@@ -1,0 +1,35 @@
+{
+  "plugins": {
+    "LuaSnip": [],
+    "cmp-nvim-lsp": [],
+    "gitsigns.nvim": [],
+    "image.nvim": [],
+    "jellybeans.nvim": {
+      "rev": "28b8088",
+      "src": "https://github.com/WTFox/jellybeans.nvim"
+    },
+    "lazygit.nvim": [],
+    "lualine.nvim": [],
+    "luasnip": {
+      "rev": "7381330",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
+    },
+    "mason.nvim": [],
+    "mini.pick": [],
+    "nvim-autopairs": [],
+    "nvim-cmp": [],
+    "nvim-lspconfig": [],
+    "nvim-surround": [],
+    "nvim-treesitter": [],
+    "nvim-treesitter-context": [],
+    "nvim-web-devicons": [],
+    "oil-git-status.nvim": [],
+    "oil.nvim": [],
+    "tender.vim": [],
+    "treesitter-context": {
+      "rev": "41847d3",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
+    "vim-tmux-navigator": []
+  }
+}

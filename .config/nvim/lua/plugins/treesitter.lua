@@ -3,7 +3,6 @@ require("nvim-treesitter.configs").setup({
 		"python",
 		"lua",
 		"go",
-		-- add more languages here if needed
 	},
 	highlight = {
 		enable = true,
