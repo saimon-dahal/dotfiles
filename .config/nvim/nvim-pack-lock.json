@@ -1,35 +1,90 @@
 {
   "plugins": {
     "LuaSnip": [],
-    "cmp-nvim-lsp": [],
-    "gitsigns.nvim": [],
-    "image.nvim": [],
+    "aicommits.nvim": {
+      "rev": "d290bf1",
+      "src": "https://github.com/404pilo/aicommits.nvim"
+    },
+    "cmp-nvim-lsp": {
+      "rev": "bd5a7d6",
+      "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
+    },
+    "gitsigns.nvim": {
+      "rev": "1ee5c1f",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "image.nvim": {
+      "rev": "446a8a5",
+      "src": "https://github.com/3rd/image.nvim"
+    },
     "jellybeans.nvim": {
       "rev": "28b8088",
       "src": "https://github.com/WTFox/jellybeans.nvim"
     },
-    "lazygit.nvim": [],
-    "lualine.nvim": [],
+    "lazygit.nvim": {
+      "rev": "2305dee",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "b8c2315",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
     "luasnip": {
       "rev": "7381330",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
-    "mason.nvim": [],
-    "mini.pick": [],
-    "nvim-autopairs": [],
-    "nvim-cmp": [],
-    "nvim-lspconfig": [],
-    "nvim-surround": [],
-    "nvim-treesitter": [],
+    "mason.nvim": {
+      "rev": "ad7146a",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.pick": {
+      "rev": "96ee37d",
+      "src": "https://github.com/echasnovski/mini.pick"
+    },
+    "nvim-autopairs": {
+      "rev": "23320e7",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-cmp": {
+      "rev": "b5311ab",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
+    },
+    "nvim-lspconfig": {
+      "rev": "3a274c3",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-surround": {
+      "rev": "75de178",
+      "src": "https://github.com/kylechui/nvim-surround"
+    },
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
     "nvim-treesitter-context": [],
-    "nvim-web-devicons": [],
-    "oil-git-status.nvim": [],
-    "oil.nvim": [],
-    "tender.vim": [],
+    "nvim-web-devicons": {
+      "rev": "b8221e4",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "oil-git-status.nvim": {
+      "rev": "4b5cf53",
+      "src": "https://github.com/refractalize/oil-git-status.nvim"
+    },
+    "oil.nvim": {
+      "rev": "919e155",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "tender.vim": {
+      "rev": "b66dc33",
+      "src": "https://github.com/jacoborus/tender.vim"
+    },
     "treesitter-context": {
       "rev": "41847d3",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
-    "vim-tmux-navigator": []
+    "vim-tmux-navigator": {
+      "rev": "c45243d",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    }
   }
 }
