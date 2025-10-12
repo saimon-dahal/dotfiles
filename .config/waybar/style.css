@@ -24,12 +24,12 @@ tooltip {
 }
 
 window#waybar {
-  background: linear-gradient(
-    to right,
-    rgba(43, 51, 57, 0.95) 0%,   /* left dark background */
-    rgba(58, 66, 72, 0.95) 50%,  /* middle slightly lighter */
-    rgba(43, 51, 57, 0.95) 100%  /* right dark background */
-  );
+background: linear-gradient(
+  to right,
+  #2B3339 0%,   /* left dark evergreen */
+  #2D353B 50%,  /* middle slightly lighter evergreen */
+  #2B3339 100%  /* right dark evergreen */
+);
   opacity: 1;
 }
 
