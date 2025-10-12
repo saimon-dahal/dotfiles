@@ -180,10 +180,10 @@
       "calendar": {
         "mode": "month",
         "format": {
-          "months": "<span color='#8FBCBB'><b>{}</b></span>",
-          "days": "<span color='#D8DEE9'><b>{}</b></span>",
-          "weekdays": "<span color='#88C0D0'><b>{}</b></span>",
-          "today": "<span color='#BF616A'><b>{}</b></span>"
+            "months": "<span color='#A7C080'><b>{}</b></span>",
+            "days": "<span color='#D3C6AA'><b>{}</b></span>",
+            "weekdays": "<span color='#8AA573'><b>{}</b></span>",
+            "today": "<span color='#E69875'><b>{}</b></span>"
         }
       }
     },

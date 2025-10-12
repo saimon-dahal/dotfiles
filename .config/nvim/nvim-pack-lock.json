@@ -9,6 +9,10 @@
       "rev": "bd5a7d6",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
     },
+    "everforest": {
+      "rev": "d293618",
+      "src": "https://github.com/neanias/everforest-nvim"
+    },
     "gitsigns.nvim": {
       "rev": "1ee5c1f",
       "src": "https://github.com/lewis6991/gitsigns.nvim"

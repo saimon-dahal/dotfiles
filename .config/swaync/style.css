@@ -1,21 +1,21 @@
 /* ================================
-   Color Variables (Nord-based)
+   Color Variables (Everforest-based)
 ================================ */
-@define-color cc-bg #1f1e1f;
-@define-color noti-border-color #07B591;
-@define-color noti-bg #1f1e1f;
-@define-color noti-bg-darker #11111b;
-@define-color noti-bg-hover #11111b;
-@define-color noti-bg-focus #11111b;
-@define-color noti-close-bg #07B591;
-@define-color noti-close-bg-hover #07B591;
-@define-color text-color #ffffff;
-@define-color text-color-disabled #7c7684;
-@define-color bg-selected #07B591;
-@define-color red-base #ff6961;
-@define-color red-hover #ff4c4c;
-@define-color green-base #07B591;
-@define-color blue-base #4fd1c5;
+@define-color cc-bg #2b3339;
+@define-color noti-border-color #a7c080;
+@define-color noti-bg #2b3339;
+@define-color noti-bg-darker #232a2e;
+@define-color noti-bg-hover #343f44;
+@define-color noti-bg-focus #3a4248;
+@define-color noti-close-bg #a7c080;
+@define-color noti-close-bg-hover #a7c080;
+@define-color text-color #d3c6aa;
+@define-color text-color-disabled #7a8478;
+@define-color bg-selected #a7c080;
+@define-color red-base #e67e80;
+@define-color red-hover #e66868;
+@define-color green-base #a7c080;
+@define-color blue-base #7fbbb3;
 
 /* ================================
    Base Styles
@@ -72,7 +72,7 @@
 ================================ */
 .notification {
   background: @cc-bg;
-  border: 2px solid @border-green;
+  border: 2px solid @noti-border-color;
   margin: 3px -2px 3px 0;
 }
 
@@ -103,7 +103,7 @@
    Actions
 ================================ */
 .notification-action {
-  border: 2px solid @border-green;
+  border: 2px solid @noti-border-color;
   border-top: none;
 }
 
@@ -171,7 +171,7 @@
 ================================ */
 .control-center {
   background: @cc-bg;
-  border: 2px solid @border-green;
+  border: 2px solid @noti-border-color;
 }
 
 /* ================================

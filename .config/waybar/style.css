@@ -19,28 +19,28 @@
 
 tooltip {
   border-radius: 15px;
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid #d3c6aa;
+  color: #d3c6aa;
 }
 
 window#waybar {
   background: linear-gradient(
     to right,
-    rgba(20, 20, 20, 0.95) 0%,    /* left near-black */
-    rgba(40, 40, 40, 0.95) 50%,   /* middle gray */
-    rgba(20, 20, 20, 0.95) 100%   /* right near-black */
+    rgba(43, 51, 57, 0.95) 0%,   /* left dark background */
+    rgba(58, 66, 72, 0.95) 50%,  /* middle slightly lighter */
+    rgba(43, 51, 57, 0.95) 100%  /* right dark background */
   );
   opacity: 1;
 }
 
 tooltip {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(43, 51, 57, 0.95);
   opacity: 1;
-  border-color: #11111b;
+  border-color: #3a4248;
 }
 
 tooltip label {
-  color: #cdd6f4;
+  color: #d3c6aa;
 }
 
 /* ======================================================
@@ -51,7 +51,7 @@ tooltip label {
 }
 
 #workspaces button {
-  color: #ffffff;
+  color: #d3c6aa;
   background: transparent;
   padding: 0 8px;
   margin: 0 3px;
@@ -60,13 +60,13 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: #e0f7fa;            /* soft cyan */
-  border-bottom: 2px solid #4fd1c5; /* bright teal */
+  color: #a7c080;               /* Everforest green */
+  border-bottom: 2px solid #a7c080;
 }
 
 #workspaces button:hover {
-  color: #c3f3c0;            /* pastel green */
-  border-bottom: 2px solid #6ee7b7; /* mint accent */
+  color: #dbbc7f;               /* warm yellow */
+  border-bottom: 2px solid #dbbc7f;
   background: transparent;
 }
 
@@ -91,7 +91,7 @@ tooltip label {
 #custom-weather:hover,
 #custom-notification:hover,
 #custom-cava:hover {
-  border-bottom: 3px solid rgba(31, 162, 200, 0.8);
+  border-bottom: 3px solid rgba(163, 190, 140, 0.8); /* Everforest green tint */
   transition: border-bottom-color 0.2s ease;
 }
 
@@ -109,7 +109,7 @@ tooltip label {
 #custom-appmenu {
   margin-left: 16px;
   font-size: 20px;
-  color: #1793d1;  /* Arch blue */
+  color: #a7c080;  /* Everforest green accent */
 }
 
 #custom-powermenu {
@@ -129,33 +129,34 @@ tooltip label {
 #custom-notification{
     margin-right: -6px;
 }
+
 /* ======================================================
    Module Colors
 ======================================================= */
 #battery {
-  color: #02C39A;
+  color: #a7c080; /* green */
 }
 #battery.warning {
-  color: #fdfd96;
+  color: #dbbc7f; /* warm yellow */
 }
 #battery.critical {
-  color: #ff6961;
+  color: #e67e80; /* red */
 }
 #temperature.critical {
-  color: #e92d4d;
+  color: #e67e80; /* same red */
 }
 #backlight,
 #pulseaudio {
-  color: #89b4fa;
+  color: #7fbbb3; /* teal */
 }
 #bluetooth {
-  color: #a6e3a1;
+  color: #83c092; /* aqua green */
 }
 #custom-gpu-usage {
-  color: #f38ba8;
+  color: #d699b6; /* magenta */
 }
 #custom-gpu-temp {
-  color: #fab387;
+  color: #e69875; /* orange */
 }
 
 /* ======================================================
@@ -174,14 +175,14 @@ tooltip label {
   min-height: 4px;
   min-width: 100px;
   border-radius: 0;
-  background-image: linear-gradient(to right, #4fd1c5 2px, transparent 2px);
+  background-image: linear-gradient(to right, #a7c080 2px, transparent 2px);
   background-size: 6px 100%;
   background-repeat: repeat-x;
   background-color: transparent;
 }
 
 #backlight-slider highlight {
-  background-color: #4fd1c5;
+  background-color: #a7c080;
   min-height: 4px;
   border-radius: 0;
 }

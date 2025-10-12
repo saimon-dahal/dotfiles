@@ -1,12 +1,16 @@
+/* =========================================
+   ROFI VERTICAL THEME — EVERFOREST DARK HARD
+   ========================================= */
+
 * {
     font: "CaskaydiaMono Nerd Font 14";
 
-    /* Arch-inspired palette */
-    color1: #ffffff;   /* base text */
-    color2: #202020;   /* background */
-    color3: #11111b;   /* darker background / borders */
-    color4: #07B591;   /* highlight / selected text */
-    color5: #6ee7b7;   /* accent / mint */
+    /* Everforest palette */
+    color1: #d3c6aa;   /* foreground / base text */
+    color2: #232a2e;   /* background */
+    color3: #3a4248;   /* selection background / subtle border */
+    color4: #a7c080;   /* highlight / selected text (green) */
+    color5: #dbbc7f;   /* accent (yellow) */
 
     background-color: @color2;
     text-color: @color1;
@@ -17,12 +21,9 @@
     spacing: 0px;
 }
 
-
 window {
     background-color:   @background-color;
     border-radius:      5px;
-    border:             0px;
-    border-color:       @color5;
     location:           center;
     width:              480px;
 }

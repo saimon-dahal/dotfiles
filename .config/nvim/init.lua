@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 -- Plugin management
 vim.pack.add({
 	-- ColorScheme
-	{ src = "https://github.com/jacoborus/tender.vim" },
+	{ src = "https://github.com/neanias/everforest-nvim", name = "everforest" },
 
 	-- Edit files and directories
 	{ src = "https://github.com/stevearc/oil.nvim" },
@@ -72,4 +72,4 @@ require("plugins.theme")
 require("plugins.error_search")
 
 -- Colorscheme
-vim.cmd("colorscheme tender")
+vim.cmd("colorscheme everforest")

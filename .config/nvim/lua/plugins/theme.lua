@@ -1,11 +1,12 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
-		vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { fg = "#ff7f50", bold = true }) -- coral
-		vim.api.nvim_set_hl(0, "MiniPickMatch", { fg = "#87cefa" }) -- light sky blue
-		vim.api.nvim_set_hl(0, "MiniPickBorder", { fg = "#555555" }) -- gray
-		vim.api.nvim_set_hl(0, "MiniPickPrompt", { fg = "#ECEFF4", bg = "#282828", bold = true })
-		vim.api.nvim_set_hl(0, "MiniPickNormal", { fg = "#f8f8f2", bg = "#282828" })
-		vim.api.nvim_set_hl(0, "MiniPickPreviewBorder", { fg = "#555555" })
+		-- Everforest dark hard palette alignment
+		vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { fg = "#a7c080", bold = true }) -- greenish highlight
+		vim.api.nvim_set_hl(0, "MiniPickMatch", { fg = "#dbbc7f" }) -- warm yellow accent
+		vim.api.nvim_set_hl(0, "MiniPickBorder", { fg = "#4b565c" }) -- subtle gray border
+		vim.api.nvim_set_hl(0, "MiniPickPrompt", { fg = "#d3c6aa", bg = "#2b3339", bold = true }) -- main fg/bg
+		vim.api.nvim_set_hl(0, "MiniPickNormal", { fg = "#d3c6aa", bg = "#2b3339" }) -- consistent background
+		vim.api.nvim_set_hl(0, "MiniPickPreviewBorder", { fg = "#4b565c" }) -- muted border tone
 	end,
 })

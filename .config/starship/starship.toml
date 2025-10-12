@@ -1,5 +1,5 @@
 # ===============================
-# Starship Prompt — Muted Color Theme
+# Starship Prompt — Everforest Dark Hard
 # ===============================
 
 format = """
@@ -23,77 +23,76 @@ symbol = " "
 # Directory
 # -------------------------------
 [directory]
-style = 'bold fg:#81A1C1'  # muted blue
-format = '[$path ]($style)'
+style = "bold fg:#a7c080"  # soft green
+format = "[$path ]($style)"
 truncation_length = 3
-truncation_symbol = '…/'
+truncation_symbol = "…/"
 truncate_to_repo = false
 
 [directory.substitutions]
-'Documents' = '󰈙'
-'Downloads' = ' '
-'Music' = ' '
-'Pictures' = ' '
+"Documents" = "󰈙"
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 
 # -------------------------------
 # Git Branch
 # -------------------------------
 [git_branch]
-symbol = ' '
-style = 'fg:#A3BE8C'  # muted green
-format = '[on](fg:#D8DEE9) [$symbol$branch ]($style)'
+symbol = " "
+style = "fg:#83c092"  # aqua green
+format = "[on](fg:#d3c6aa) [$symbol$branch ]($style)"
 
 # -------------------------------
 # Git Status
 # -------------------------------
 [git_status]
-style = 'fg:#A3BE8C'
-format = '([$all_status$ahead_behind]($style) )'
+style = "fg:#a7c080"
+format = "([$all_status$ahead_behind]($style) )"
 
 # -------------------------------
 # Programming Languages
 # -------------------------------
 [python]
-symbol = ' '
-style = 'fg:#88C0D0'  # muted teal
+symbol = " "
+style = "fg:#dbbc7f"  # warm yellow
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 pyenv_version_name = true
-pyenv_prefix = ''
+pyenv_prefix = ""
 
 [lua]
-symbol = ' '
-style = 'fg:#B48EAD'  # muted purple
+symbol = " "
+style = "fg:#d699b6"  # soft magenta
 
 [golang]
-symbol = ' '
-style = 'fg:#5E81AC'  # muted dark blue
-format = '[${symbol}(${version} )]($style)'
-version_format = 'v${raw}'
+symbol = " "
+style = "fg:#7fbbb3"  # teal blue-green
+format = "[${symbol}(${version} )]($style)"
+version_format = "v${raw}"
 
 [package]
-symbol = '󰏗 '
-style = 'fg:#D08770'  # muted orange
+symbol = "󰏗 "
+style = "fg:#e69875"  # warm orange
 
 # -------------------------------
 # Command Duration
 # -------------------------------
 [cmd_duration]
 min_time = 500
-style = 'fg:#7c7684'   # muted gray
-format = '[$duration]($style)'
+style = "fg:#859289"  # muted gray-green
+format = "[$duration]($style)"
 
 # -------------------------------
 # Docker Context
 # -------------------------------
 [docker_context]
-symbol = ' '
-style = 'fg:#88C0D0'   # muted teal
-format = '[$symbol]($style) $path'
+symbol = " "
+style = "fg:#7fbbb3"  # teal
+format = "[$symbol]($style) $path"
 
 # -------------------------------
 # Jobs (optional, muted accent)
 # -------------------------------
 [jobs]
-symbol = '⚙️ '
-style = 'fg:#B48EAD'
-
+symbol = "⚙️ "
+style = "fg:#d699b6"

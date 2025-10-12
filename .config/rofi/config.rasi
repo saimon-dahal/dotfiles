@@ -26,5 +26,5 @@ configuration {
 }
 
 
-@theme ".config/rofi/arch_themed.rasi"
+@theme ".config/rofi/everforest.rasi"
 
