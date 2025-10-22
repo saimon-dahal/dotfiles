@@ -67,6 +67,11 @@ if [ -f "$CURRENT_LINK/starship.toml" ]; then
     ln -sf "$CURRENT_LINK/starship.toml" ~/.config/starship/starship.toml
 fi
 
+# Apply eza theme
+if [ -f "$CURRENT_LINK/eza.yml" ]; then
+    mkdir -p ~/.config/eza
+    ln -sf "$CURRENT_LINK/eza.yml" ~/.config/eza/theme.yml
+fi
 
 # Apply tmux theme
 if [ -f "$CURRENT_LINK/tmux.conf" ]; then
