@@ -25,5 +25,5 @@ configuration {
 }
 
 
-@theme "dotfiles/themes/everforest/rofi.rasi"
+@theme "~/.config/themes/current/rofi.rasi"
 
