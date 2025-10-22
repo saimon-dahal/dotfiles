@@ -85,6 +85,15 @@ if [ -f "$CURRENT_LINK/tmux.conf" ]; then
     tmux refresh-client 2>/dev/null
 fi
 
+# Apply Yazi theme
+if [ -d "$CURRENT_LINK/current.yazi" ]; then
+    rm -rf ~/.config/yazi/flavors/current.yazi
+    
+    mkdir -p ~/.config/yazi/flavors
+    cp -r "$CURRENT_LINK/current.yazi" ~/.config/yazi/flavors/current.yazi
+
+fi
+
 # Set random wallpaper
 set_random_wallpaper "$CURRENT_LINK"
 
