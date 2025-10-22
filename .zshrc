@@ -218,7 +218,6 @@ starship_lazy() {
   eval "$(starship init zsh)"
 }
 add-zsh-hook precmd starship_lazy
-export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
 
 # =========================================
 # External Tools

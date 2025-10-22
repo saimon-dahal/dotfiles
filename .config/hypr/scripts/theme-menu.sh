@@ -63,8 +63,8 @@ fi
 
 # Apply Starship theme
 if [ -f "$CURRENT_LINK/starship.toml" ]; then
-    rm -f ~/.config/starship/starship.toml
-    ln -sf "$CURRENT_LINK/starship.toml" ~/.config/starship/starship.toml
+    rm -f ~/.config/starship.toml
+    ln -sf "$CURRENT_LINK/starship.toml" ~/.config/starship.toml
 fi
 
 # Apply eza theme
