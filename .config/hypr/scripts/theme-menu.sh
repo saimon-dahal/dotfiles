@@ -72,6 +72,16 @@ if [ -f "$CURRENT_LINK/eza.yml" ]; then
     ln -snf "$CURRENT_LINK/eza.yml" ~/.config/eza/theme.yml
 fi
 
+# Apply Btop theme (TODO fix autoreload)
+if [ -f "$CURRENT_LINK/btop.theme" ]; then
+    # Create themes directory
+    mkdir -p ~/.config/btop/themes
+    # Copy theme file to themes directory as "current.theme"
+    ln -snf "$CURRENT_LINK/btop.theme" ~/.config/btop/themes/current.theme
+
+    pkill -SIGUSR2 btop
+fi
+
 # Apply tmux theme
 if [ -f "$CURRENT_LINK/tmux.conf" ]; then
     tmux source-file ~/.config/tmux/tmux.conf 2>/dev/null
