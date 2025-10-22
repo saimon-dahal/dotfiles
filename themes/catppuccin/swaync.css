@@ -1,0 +1,15 @@
+@define-color cc-bg #1e1e2e;               // Mocha background
+@define-color noti-border-color #a6d189;  // green light
+@define-color noti-bg #1e1e2e;            // background
+@define-color noti-bg-darker #181825;     // slightly darker background
+@define-color noti-bg-hover #313244;      // surface2
+@define-color noti-bg-focus #45475a;      // surface1
+@define-color noti-close-bg #f5a97f;      // peach
+@define-color noti-close-bg-hover #f5a97f;// peach hover (same as base)
+@define-color text-color #c6d0f5;         // text
+@define-color text-color-disabled #6c7086;// subtext0
+@define-color bg-selected #a6d189;        // green
+@define-color red-base #f38ba8;           // red
+@define-color red-hover #eba0ac;          // red lighter
+@define-color green-base #a6d189;         // green
+@define-color blue-base #89b4fa;          // blue

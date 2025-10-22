@@ -1,21 +1,4 @@
-/* ================================
-   Color Variables (Everforest-based)
-================================ */
-@define-color cc-bg #2b3339;
-@define-color noti-border-color #a7c080;
-@define-color noti-bg #2b3339;
-@define-color noti-bg-darker #232a2e;
-@define-color noti-bg-hover #343f44;
-@define-color noti-bg-focus #3a4248;
-@define-color noti-close-bg #a7c080;
-@define-color noti-close-bg-hover #a7c080;
-@define-color text-color #d3c6aa;
-@define-color text-color-disabled #7a8478;
-@define-color bg-selected #a7c080;
-@define-color red-base #e67e80;
-@define-color red-hover #e66868;
-@define-color green-base #a7c080;
-@define-color blue-base #7fbbb3;
+@import "/home/zero/dotfiles/themes/everforest/swaync.css";
 
 /* ================================
    Base Styles
