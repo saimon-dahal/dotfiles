@@ -4,8 +4,6 @@ vim.g.mapleader = " "
 
 -- Plugin management
 vim.pack.add({
-	-- ColorScheme
-	{ src = "https://github.com/neanias/everforest-nvim", name = "everforest" },
 
 	-- Edit files and directories
 	{ src = "https://github.com/stevearc/oil.nvim" },
@@ -68,8 +66,9 @@ require("plugins.autopairs")
 require("plugins.treesitter")
 require("plugins.tmux-nvim")
 require("plugins.gitsigns")
-require("plugins.theme")
 require("plugins.error_search")
 
--- Colorscheme
-vim.cmd("colorscheme everforest")
+local theme_file = vim.fn.expand("~/.config/themes/current/neovim.lua")
+if vim.fn.filereadable(theme_file) == 1 then
+	dofile(theme_file)
+end

@@ -5,6 +5,10 @@
       "rev": "d290bf1",
       "src": "https://github.com/404pilo/aicommits.nvim"
     },
+    "catppuccin": {
+      "rev": "af58927",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "cmp-nvim-lsp": {
       "rev": "bd5a7d6",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp"

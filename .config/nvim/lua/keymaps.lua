@@ -52,3 +52,12 @@ vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
 vim.keymap.set("n", "<C-a>", "ggVG", opts)
+
+-- Reload theme with <leader>tr
+vim.keymap.set("n", "<leader>tr", function()
+	local theme_file = vim.fn.expand("~/.config/themes/current/neovim.lua")
+	if vim.fn.filereadable(theme_file) == 1 then
+		dofile(theme_file)
+		vim.notify("Theme reloaded!", vim.log.levels.INFO)
+	end
+end, { desc = "Reload theme" })
