@@ -61,6 +61,13 @@ if [ -f "$CURRENT_LINK/kitty.conf" ]; then
     killall -SIGUSR1 kitty
 fi
 
+# Apply Starship theme
+if [ -f "$CURRENT_LINK/starship.toml" ]; then
+    rm -f ~/.config/starship/starship.toml
+    ln -sf "$CURRENT_LINK/starship.toml" ~/.config/starship/starship.toml
+fi
+
+
 # Apply tmux theme
 if [ -f "$CURRENT_LINK/tmux.conf" ]; then
     tmux source-file ~/.config/tmux/tmux.conf 2>/dev/null
@@ -76,3 +83,5 @@ waybar &
 
 killall swaync 
 swaync &
+
+notify-send "Theme Changed" "Applied $selected theme"

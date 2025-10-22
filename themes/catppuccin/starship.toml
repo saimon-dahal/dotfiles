@@ -1,0 +1,83 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$lua\
+$python\
+$golang\
+$jobs\
+$docker_context\
+$cmd_duration\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+# === Directory ===
+[directory]
+style = "bold fg:#fab387" 
+format = "[$path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+# === Git Branch ===
+[git_branch]
+symbol = " "
+style = "fg:#89b4fa"
+format = "[on](fg:#cdd6f4) [$symbol$branch ]($style)"
+
+# === Git Status ===
+[git_status]
+style = "fg:#f2cdcd"
+format = "([$all_status$ahead_behind]($style) )"
+
+# === Python ===
+[python]
+symbol = " "
+style = "fg:#f9e2af"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+pyenv_version_name = true
+pyenv_prefix = ""
+
+# === Lua ===
+[lua]
+symbol = " "
+style = "fg:#a6e3a1"
+
+# === Go ===
+[golang]
+symbol = " "
+style = "fg:#94e2d5"
+format = "[${symbol}(${version} )]($style)"
+version_format = "v${raw}"
+
+# === Package ===
+[package]
+symbol = "󰏗 "
+style = "fg:#fab387"
+
+# === Command Duration ===
+[cmd_duration]
+min_time = 500
+style = "fg:#7f849c"
+format = "[$duration]($style)"
+
+# === Docker ===
+[docker_context]
+symbol = " "
+style = "fg:#94e2d5"
+format = "[$symbol]($style) $path"
+
+# === Jobs ===
+[jobs]
+symbol = "⚙️ "
+style = "fg:#fab387"
