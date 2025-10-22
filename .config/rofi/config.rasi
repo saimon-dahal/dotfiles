@@ -15,8 +15,7 @@ configuration {
   hover-select:         true;
   me-select-entry:      "";
   me-accept-entry:      [MousePrimary,MouseSecondary];
-  terminal:             "ghostty";
-  font:                 "Hack Nerd Font 12";
+  terminal:             "kitty";
 }
 
 * {
@@ -26,5 +25,5 @@ configuration {
 }
 
 
-@theme ".config/rofi/everforest.rasi"
+@theme "dotfiles/themes/everforest/rofi.rasi"
 
