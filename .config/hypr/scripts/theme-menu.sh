@@ -87,11 +87,11 @@ fi
 
 # Apply Yazi theme
 if [ -d "$CURRENT_LINK/current.yazi" ]; then
+    # Remove old current flavor
     rm -rf ~/.config/yazi/flavors/current.yazi
     
     mkdir -p ~/.config/yazi/flavors
-    cp -r "$CURRENT_LINK/current.yazi" ~/.config/yazi/flavors/current.yazi
-
+    ln -snf -r "$CURRENT_LINK/current.yazi" ~/.config/yazi/flavors/current.yazi
 fi
 
 # Set random wallpaper
