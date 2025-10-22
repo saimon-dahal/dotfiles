@@ -1,26 +1,5 @@
 colourful: true
 
-# Everforest Medium Palette
-# Background: #2d353b
-# Foreground: #d3c6aa
-# Black: #343f44
-# Red: #e67e80
-# Green: #a7c080
-# Yellow: #dbbc7f
-# Blue: #7fbbb3
-# Magenta: #d699b6
-# Cyan: #83c092
-# White: #d3c6aa
-# Gray: #859289
-# Bright Black: #475258
-# Bright Red: #e67e80
-# Bright Green: #a7c080
-# Bright Yellow: #dbbc7f
-# Bright Blue: #7fbbb3
-# Bright Magenta: #d699b6
-# Bright Cyan: #83c092
-# Bright White: #d3c6aa
-
 filekinds:
   normal: { foreground: "#d3c6aa" }
   directory: { foreground: "#e69875" }
