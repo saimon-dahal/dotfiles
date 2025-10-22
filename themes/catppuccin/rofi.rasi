@@ -3,12 +3,11 @@
 * {
     font: "CaskaydiaMono Nerd Font 14";
 
-    /* Catppuccin Mocha palette */
-    color1: #c6d0f5;   /* foreground / base text */
-    color2: #1e1e2e;   /* background */
-    color3: #45475a;   /* selection background / subtle border */
-    color4: #a6d189;   /* highlight / selected text (green) */
-    color5: #f5e0dc;   /* accent (yellow/pinkish) */
+    color1: #c6d0f5;   /* base text, soft off-white */
+    color2: #2a273f;  /* deep muted gray-purple */
+    color3: #1e1e2e;   /* darker background / borders */
+    color4: #f5a975;   /* highlight / selected text, pastel pink */
+    color5: #94e2d5;   /* accent / secondary highlight, pastel teal */
 
     background-color: @color2;
     text-color: @color1;
