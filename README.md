@@ -30,7 +30,6 @@ The script will:
 3. Make all files in `~/.local/bin` executable.
 4. Set up a `~/.config/themes/current` symlink (default: `everforest`).
 
-Optional configs are available under `optional/` and are not installed by default.
 
 ## Directory Structure (Overview)
 
@@ -39,7 +38,6 @@ Optional configs are available under `optional/` and are not installed by defaul
 * `scripts/.local/bin/` – utility scripts (wallpaper, recording, notifications, themes)
 * `themes/` – complete themes (Everforest, Catppuccin)
 * `theme-modules/` – helper scripts for applying themes
-* `optional/` – configs for optional tools
 
 This updates all supported apps’ configs (Neovim, Hyprland, kitty, etc.).
 
@@ -47,4 +45,3 @@ This updates all supported apps’ configs (Neovim, Hyprland, kitty, etc.).
 
 * Scripts assume `~/.local/bin` is in `$PATH`.
 * Stow manages symlinks; never edit files directly in your home directory.
-* Optional configs are separate and can be manually stowed if needed.
