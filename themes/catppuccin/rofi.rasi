@@ -3,15 +3,13 @@
 * {
     font: "CaskaydiaMono Nerd Font 14";
 
-    color1: #c6d0f5;   /* base text, soft off-white */
-    color2: #2a273f;  /* deep muted gray-purple */
-    color3: #1e1e2e;   /* darker background / borders */
-    color4: #f5a975;   /* highlight / selected text, pastel pink */
-    color5: #94e2d5;   /* accent / secondary highlight, pastel teal */
+    color1: #e0e7ff;   /* base text, soft off-white */
+    color2: #3b4252;  /* deep muted gray-purple */
+    color3: #ff5c1f;   /* highlight / selected text, pastel pink */
 
-    background-color: @color2;
     text-color: @color1;
-    selected-text-color: @color4;
+    background-color: @color2;
+    selected-text-color: @color3;
 
     margin: 0px;
     padding: 0px;
@@ -56,7 +54,7 @@ element alternate active {
 }
 
 element selected {
-    background-color:   @color3;
+    background-color:   @selected-text-color;
     text-color:         @text-color;
     border:             0px;
 }
