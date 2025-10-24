@@ -5,13 +5,11 @@
     /* Everforest palette */
     color1: #d3c6aa;   /* foreground / base text */
     color2: #232a2e;   /* background */
-    color3: #3a4248;   /* selection background / subtle border */
-    color4: #a7c080;   /* highlight / selected text (green) */
-    color5: #dbbc7f;   /* accent (yellow) */
+    color3: #a7c080;   /* highlight / selected text (green) */
 
     background-color: @color2;
     text-color: @color1;
-    selected-text-color: @color4;
+    selected-text-color: @color3;
 
     margin: 0px;
     padding: 0px;
@@ -56,7 +54,7 @@ element alternate active {
 }
 
 element selected {
-    background-color:   @color3;
+    background-color:   @selected-text-color;
     text-color:         @text-color;
     border:             0px;
 }
