@@ -1,4 +1,4 @@
-# Dotfiles
+# My Personal Dots
 
 Personal configuration for Linux (Hyprland, Neovim, tmux, Zsh, and more) managed with GNU Stow. Includes scripts and theme support.
 
