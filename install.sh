@@ -12,10 +12,6 @@ echo "→ Stowing base..."
 stow base
 echo "✓"
 
-echo "→ Stowing hyprland..."
-stow hyprland
-echo "✓"
-
 echo "→ Stowing scripts..."
 stow scripts
 echo "✓"

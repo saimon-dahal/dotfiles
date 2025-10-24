@@ -4,7 +4,7 @@ Personal configuration for Linux (Hyprland, Neovim, tmux, Zsh, and more) managed
 
 ## ⚠️ Warning
 
-Running the installer will **unstow/remove existing configs** for `base`, `hyprland`, and `scripts`. Back up anything important before proceeding.
+Running the installer will **unstow/remove existing configs** for `base` and `scripts`. Back up anything important before proceeding.
 
 ## Requirements
 
@@ -25,16 +25,15 @@ cd ~/dotfiles
 
 The script will:
 
-1. Unstow any previous configs for `base`, `hyprland`, `scripts`.
-2. Stow fresh `base`, `hyprland`, and `scripts`.
+1. Unstow any previous configs for `base`, `scripts`.
+2. Stow fresh `base` and `scripts`.
 3. Make all files in `~/.local/bin` executable.
 4. Set up a `~/.config/themes/current` symlink (default: `everforest`).
 
 
 ## Directory Structure (Overview)
 
-* `base/` – core dotfiles: Zsh, tmux, Neovim, kitty, btop, ripgrep, Yazi
-* `hyprland/` – Hyprland config, Waybar, Rofi, SwayNC
+* `base/` – core dotfiles: Zsh, tmux, Neovim, kitty, btop, ripgrep, Yazi, hyprland, rofi, swaync, waybar
 * `scripts/.local/bin/` – utility scripts (wallpaper, recording, notifications, themes)
 * `themes/` – complete themes (Everforest, Catppuccin)
 * `theme-modules/` – helper scripts for applying themes
