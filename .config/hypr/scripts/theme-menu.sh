@@ -58,34 +58,42 @@ yazi-restart() {
     fi
 }
 # Function to set a random wallpaper from theme
-set_random_wallpaper() {
+set_default_wallpaper() {
     local theme_path="$1"
-    local bg_dir="$theme_path/background"
+    local bg_file="$theme_path/background/default.jpg"
     
-    if [ -d "$bg_dir" ]; then
-        # Get all image files
-        local images=($(find "$bg_dir" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \) | sort))
-        
-        if [ ${#images[@]} -gt 0 ]; then
-            # Pick a random image
-            local random_index=$((RANDOM % ${#images[@]}))
-            local bg_file="${images[$random_index]}"
-            
-            # Save current wallpaper path for cycling
-            echo "$bg_file" > "$WALLPAPER_STATE"
-            
-            # Create/update hyprpaper config
-            cat > ~/.config/hypr/hyprpaper.conf << EOF
+    # Check if default wallpaper exists
+    if [ ! -f "$bg_file" ]; then
+        # Try other common extensions if default.jpg doesn't exist
+        if [ -f "$theme_path/background/default.png" ]; then
+            bg_file="$theme_path/background/default.png"
+        elif [ -f "$theme_path/background/default.jpeg" ]; then
+            bg_file="$theme_path/background/default.jpeg"
+        else
+            echo "Warning: No default wallpaper found in $theme_path/background/"
+            return 1
+        fi
+    fi
+    
+    # Resolve to absolute path (in case it's a symlink)
+    bg_file=$(realpath "$bg_file")
+    
+    # Save current wallpaper path
+    echo "$bg_file" > "$WALLPAPER_STATE"
+    
+    # Create/update hyprpaper config
+    cat > ~/.config/hypr/hyprpaper.conf << EOF
 preload = $bg_file
 wallpaper = ,$bg_file
 splash = false
 EOF
-            
-            # Restart hyprpaper
-            killall hyprpaper 2>/dev/null
-            hyprpaper &
-        fi
-    fi
+    
+    # Update hyprlock background
+    update_hyprlock_background "$bg_file"
+    
+    # Restart hyprpaper
+    killall hyprpaper 2>/dev/null
+    hyprpaper &
 }
 
 # Get list of available themes
@@ -149,7 +157,7 @@ if [ -d "$CURRENT_LINK/current.yazi" ]; then
 fi
 yazi-restart
 # Set random wallpaper
-set_random_wallpaper "$CURRENT_LINK"
+set_default_wallpaper "$CURRENT_LINK"
 
 # Restart waybar and swaync
 killall waybar
