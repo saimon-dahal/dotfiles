@@ -56,9 +56,7 @@ format = "([$all_status$ahead_behind]($style) )"
 [python]
 symbol = " "
 style = "fg:#dbbc7f"  # warm yellow
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-pyenv_version_name = true
-pyenv_prefix = ""
+format = '[${symbol}${pyenv_prefix} (${version} )(\($virtualenv\) )]($style)'
 
 [lua]
 symbol = " "
