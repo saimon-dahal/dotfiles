@@ -49,6 +49,11 @@
       "rev": "96ee37d",
       "src": "https://github.com/echasnovski/mini.pick"
     },
+    "nord": [],
+    "nord.nvim": {
+      "rev": "80c1e53",
+      "src": "https://github.com/shaunsingh/nord.nvim"
+    },
     "nvim-autopairs": {
       "rev": "23320e7",
       "src": "https://github.com/windwp/nvim-autopairs"
