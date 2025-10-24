@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Function to update hyprlock background
-update_hyprlock_background() {
-    local bg_file="$1"
-    local hyprlock_config="$HOME/.config/hypr/hyprlock.conf"
-    
-    if [ -f "$hyprlock_config" ]; then
-        sed -i "s|^    path = .*|    path = $bg_file|" "$hyprlock_config"
-    fi
-}
 
 # Function to set default wallpaper from theme
 set_default_wallpaper() {
@@ -41,7 +32,6 @@ splash = false
 EOF
     
     # Update hyprlock background
-    update_hyprlock_background "$bg_file"
     
     # Restart hyprpaper
     killall hyprpaper 2>/dev/null
