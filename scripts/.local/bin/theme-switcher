@@ -6,7 +6,7 @@ CURRENT_LINK="$HOME/.config/themes/current"
 WALLPAPER_STATE="$HOME/.cache/current-wallpaper"
 
 # Source modules
-MODULE_DIR="$HOME/dotfiles/theme-modules"
+MODULE_DIR="$HOME/dotfiles/others/theme-modules"
 
 source "$MODULE_DIR/wallpaper.sh"
 source "$MODULE_DIR/yazi.sh"
