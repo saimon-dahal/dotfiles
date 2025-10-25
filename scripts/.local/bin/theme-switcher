@@ -17,7 +17,7 @@ source "$MODULE_DIR/ui.sh"
 themes=$(ls -1 "$THEMES_DIR")
 
 # Show rofi menu and get selection
-selected=$(echo "$themes" | rofi -dmenu -i -p "Select Theme")
+selected=$(echo "$themes" | rofi -dmenu -i -p "Select Theme" -no-custom)
 
 # Exit if nothing selected
 if [ -z "$selected" ]; then

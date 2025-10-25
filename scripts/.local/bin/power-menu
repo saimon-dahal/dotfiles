@@ -12,7 +12,7 @@ show_menu() {
     )
 
     # Display Rofi menu and extract command key
-    selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Move?" | awk -F': ' '{print $1}')
+    selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Move?" -no-custom | awk -F': ' '{print $1}')
 
     # Execute selected command
     case $selected in
