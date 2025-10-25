@@ -1,0 +1,68 @@
+# ===============================
+# Starship Prompt — Kanso Mist
+# ===============================
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$lua\
+$python\
+$golang\
+$jobs\
+$docker_context\
+$cmd_duration\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+[directory]
+style = "bold fg:#7FB4CA"
+format = "[$path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[git_branch]
+symbol = " "
+style = "fg:#98BB6C"    # green
+format = "[on](fg:#C5C9C7) [$symbol$branch ]($style)"
+
+[git_status]
+style = "fg:#DCA561"    # yellow
+format = "([$all_status$ahead_behind]($style) )"
+
+[python]
+symbol = " "
+style = "fg:#DCA561"
+format = '[${symbol}${pyenv_prefix} (${version} )(\($virtualenv\) )]($style)'
+
+[lua]
+symbol = " "
+style = "fg:#C34043"    # red
+
+[golang]
+symbol = " "
+style = "fg:#7FB4CA"
+format = "[${symbol}(${version} )]($style)"
+
+[package]
+symbol = "󰏗 "
+style = "fg:#b6927b"    # orange
+
+[cmd_duration]
+min_time = 500
+style = "fg:#7FB4CA"
+format = "[$duration]($style)"
+
+[docker_context]
+symbol = " "
+style = "fg:#8ea4a2"    # aqua
+format = "[$symbol]($style) $path"
+
+[jobs]
+symbol = "⚙️ "
+style = "fg:#C34043"

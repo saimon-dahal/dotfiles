@@ -1,0 +1,96 @@
+[mgr]
+cwd = { fg = "#658594" }             # blue2 (former nord8)
+hovered = { reversed = true }
+preview_hovered = { underline = true }
+
+find_keyword = { fg = "#DCA561", bold = true, italic = true, underline = true } # yellow
+find_position = { fg = "#938AA9", bg = "reset", bold = true, italic = true }     # violet
+
+marker_copied = { fg = "#98BB6C", bg = "#98BB6C" }   # green
+marker_cut = { fg = "#C34043", bg = "#C34043" }      # red
+marker_marked = { fg = "#6A9589", bg = "#6A9589" }   # green4 (minty)
+marker_selected = { fg = "#DCA561", bg = "#DCA561" } # yellow
+
+tab_active = { reversed = true }
+tab_inactive = { fg = "#5C6066" }                     # mistBg3
+tab_width = 1
+
+count_copied = { fg = "#22262D", bg = "#98BB6C" }    # mistBg0 on green
+count_cut = { fg = "#22262D", bg = "#C34043" }       # mistBg0 on red
+count_selected = { fg = "#22262D", bg = "#DCA561" }  # mistBg0 on yellow
+
+border_symbol = "│"
+border_style = { fg = "#5C6066" }                     # mistBg3
+
+[tabs]
+active = { fg = "#22262D", bg = "#6A9589", bold = true } # mistBg0 on green4
+inactive = { fg = "#6A9589", bg = "#2A2C35" }            # green4 on mistBg1
+
+[mode]
+normal_main = { fg = "#22262D", bg = "#6A9589", bold = true }
+normal_alt  = { fg = "#6A9589", bg = "#2A2C35" }
+
+select_main = { fg = "#22262D", bg = "#6A9589", bold = true }
+select_alt  = { fg = "#6A9589", bg = "#2A2C35" }
+
+unset_main = { fg = "#22262D", bg = "#C34043", bold = true }
+unset_alt  = { fg = "#C34043", bg = "#2A2C35" }
+
+[status]
+perm_sep = { fg = "#5C6066" }
+perm_type = { fg = "#7FB4CA" }     # blue
+perm_read = { fg = "#DCA561" }     # yellow
+perm_write = { fg = "#C34043" }    # red
+perm_exec = { fg = "#98BB6C" }     # green
+
+progress_label = { fg = "#F2F1EF", bold = true }
+progress_normal = { fg = "#658594", bg = "#393B44" } # blue2 on mistBg2
+progress_error = { fg = "#C34043", bg = "#393B44" }
+
+[pick]
+border = { fg = "#7FB4CA" }              # blue
+active = { fg = "#938AA9", bold = true } # violet
+inactive = { fg = "#C5C9C7" }            # fg
+
+[input]
+border = { fg = "#7FB4CA" }
+title  = { fg = "#C5C9C7" }
+value  = { fg = "#F2F1EF" }
+selected = { reversed = true }
+
+[cmp]
+border = { fg = "#7FB4CA" }
+
+[tasks]
+border = { fg = "#7FB4CA" }
+title  = { fg = "#F2F1EF" }
+hovered = { fg = "#938AA9", underline = true }
+
+[which]
+mask = { bg = "#2A2C35" }             # mistBg1
+cand = { fg = "#6A9589" }             # green4
+rest = { fg = "#5C6066" }             # mistBg3
+desc = { fg = "#938AA9" }             # violet
+separator = "  "
+separator_style = { fg = "#393B44" }   # mistBg2
+
+[help]
+on = { fg = "#6A9589" }
+run = { fg = "#938AA9" }
+hovered = { reversed = true, bold = true }
+footer = { fg = "#22262D", bg = "#F2F1EF" } # mistBg0 on fg2
+
+[notify]
+title_info = { fg = "#98BB6C" }
+title_warn = { fg = "#DCA561" }
+title_error = { fg = "#C34043" }
+
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#6A9589" },
+  { mime = "{audio,video}/*", fg = "#DCA561" },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#938AA9" },
+  { mime = "application/{pdf,doc,rtf,odt,docx,xlsx,pptx}", fg = "#98BB6C" },
+  { name = "*", fg = "#C5C9C7" },
+  { name = "*/", fg = "#7FB4CA", bold = true },
+]

@@ -1,0 +1,78 @@
+# Main background
+theme[main_bg]="#22262D"       # mistBg0
+
+# Main text color
+theme[main_fg]="#C5C9C7"       # fg
+
+# Title color for boxes
+theme[title]="#8EA4A2"         # blue4
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#7FB4CA"         # blue
+
+# Background color of selected item in processes box
+theme[selected_bg]="#393B44"   # mistBg2
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#C5C9C7"   # fg
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#5C6066"   # gray5
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#7FB4CA"     # blue
+
+# Cpu box outline color
+theme[cpu_box]="#393B44"       # mistBg2
+
+# Memory/disks box outline color
+theme[mem_box]="#393B44"       # mistBg2
+
+# Net up/down box outline color
+theme[net_box]="#393B44"       # mistBg2
+
+# Processes box outline color
+theme[proc_box]="#393B44"      # mistBg2
+
+# Box divider line and small boxes line color
+theme[div_line]="#393B44"      # mistBg2
+
+# Temperature graph colors
+theme[temp_start]="#7FB4CA"    # blue
+theme[temp_mid]="#8EA4A2"      # blue4
+theme[temp_end]="#C5C9C7"      # fg
+
+# CPU graph colors
+theme[cpu_start]="#7FB4CA"     # blue
+theme[cpu_mid]="#8EA4A2"       # blue4
+theme[cpu_end]="#C5C9C7"       # fg
+
+# Mem/Disk free meter
+theme[free_start]="#7FB4CA"    # blue
+theme[free_mid]="#8EA4A2"      # blue4
+theme[free_end]="#C5C9C7"      # fg
+
+# Mem/Disk cached meter
+theme[cached_start]="#7FB4CA"  # blue
+theme[cached_mid]="#8EA4A2"    # blue4
+theme[cached_end]="#C5C9C7"    # fg
+
+# Mem/Disk available meter
+theme[available_start]="#7FB4CA" # blue
+theme[available_mid]="#8EA4A2"   # blue4
+theme[available_end]="#C5C9C7"   # fg
+
+# Mem/Disk used meter
+theme[used_start]="#7FB4CA"     # blue
+theme[used_mid]="#8EA4A2"       # blue4
+theme[used_end]="#C5C9C7"       # fg
+
+# Download graph colors
+theme[download_start]="#7FB4CA" # blue
+theme[download_mid]="#8EA4A2"   # blue4
+theme[download_end]="#C5C9C7"   # fg
+
+# Upload graph colors
+theme[upload_start]="#7FB4CA"   # blue
+theme[upload_mid]="#8EA4A2"     # blue4
+theme[upload_end]="#C5C9C7"     # fg
