@@ -5,13 +5,11 @@
     /* Nord-inspired palette with lighter background */
     color1: #D8DEE9;   /* foreground / base text */
     color2: #434C5E;   /* slightly lighter background than Nord0 */
-    color3: #4C566A;   /* selection background / subtle border */
-    color4: #A3BE8C;   /* highlight / selected text (green) */
-    color5: #EBCB8B;   /* accent (yellow) */
+    color3: #A3BE8C;   /* highlight / selected text (green) */
 
     background-color: @color2;
     text-color: @color1;
-    selected-text-color: @color4;
+    selected-text-color: @color3;
 
     margin: 0px;
     padding: 0px;
@@ -56,7 +54,7 @@ element alternate active {
 }
 
 element selected {
-    background-color:   @color3;
+    background-color:   @selected-text-color;
     text-color:         @text-color;
     border:             0px;
 }
