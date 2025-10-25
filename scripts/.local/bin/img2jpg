@@ -1,22 +1,29 @@
-
 #!/bin/bash
 
 # Check argument
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 image.png"
+    echo "Usage: $0 image.(png|jpeg)"
     exit 1
 fi
 
 input="$1"
 
-# Check file extension
-if [[ "${input##*.}" != "png" ]]; then
-    echo "Error: Input file must be a PNG."
+# Extract file extension
+ext="${input##*.}"
+ext_lower=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+
+# Check valid extensions
+if [[ "$ext_lower" != "png" && "$ext_lower" != "jpeg" ]]; then
+    echo "Error: Input file must be PNG or JPEG."
     exit 1
 fi
 
-# Output file name
-output="${input%.png}.jpg"
+# Determine output file name
+if [[ "$ext_lower" == "png" ]]; then
+    output="${input%.png}.jpg"
+else
+    output="${input%.jpeg}.jpg"
+fi
 
 # Convert
 convert "$input" "$output"
