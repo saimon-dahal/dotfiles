@@ -22,8 +22,8 @@ def load_dotenv(path="$HOME/dotfiles/.env"):
 load_dotenv()
 
 API_KEY = os.getenv("WEATHER_API_KEY")
-# LOCATION = "Kathmandu"
-LOCATION = "Biratnagar"
+LOCATION = "Kathmandu"
+# LOCATION = "Biratnagar"
 DAYS = 2
 
 WEATHER_CODES = {
