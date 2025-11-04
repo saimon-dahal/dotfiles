@@ -4,7 +4,7 @@
 
     color1: #C5C9C7;   /* foreground / base text */
     color2: #1A1A1A;   /* mistBg0 — main background */
-    color3: #7FB4CA;   /* highlight / selected text (green) */
+    color3: #F59E0B;   /* highlight / selected text (green) */
 
     background-color: @color2;
     text-color: @color1;
