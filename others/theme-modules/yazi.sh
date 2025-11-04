@@ -53,3 +53,28 @@ yazi_restart() {
         printf "Restarted yazi in %d window(s)\n" "$restarted" >&2
     fi
 }
+
+link_yazi_theme() {
+    local theme_name="$1"
+    local yazi_theme_source="${THEMES_DIR}/${theme_name}/yazi.toml"
+    local yazi_theme_link="${YAZI_CONFIG_DIR}/theme.toml"
+    
+    # Check if yazi.toml exists in theme
+    if [ ! -f "${yazi_theme_source}" ]; then
+        echo "Warning: yazi.toml not found in theme '${theme_name}'"
+        return 1
+    fi
+    
+    # Create config directory if it doesn't exist
+    mkdir -p "${YAZI_CONFIG_DIR}"
+    
+    # Remove old symlink if it exists
+    if [ -L "${yazi_theme_link}" ] || [ -e "${yazi_theme_link}" ]; then
+        rm -f "${yazi_theme_link}"
+    fi
+    
+    # Create new symlink using absolute path
+    ln -sf "${yazi_theme_source}" "${yazi_theme_link}"
+    
+    echo "Linked Yazi theme: ${theme_name}"
+}
