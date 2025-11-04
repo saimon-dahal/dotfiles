@@ -10,3 +10,13 @@ hash = "fa7142cda74a50b271ea212356b40b57"
 use = "marcosvnmelo/kanagawa-dragon"
 rev = "4905527"
 hash = "5fd7aa0bf4e7d9753ad8a4660a6eb94f"
+
+[[flavor.deps]]
+use = "ficd0/ashen:ashen"
+rev = "28ec623"
+hash = "f9aed559dc6820dbc7253253be1bb6d2"
+
+[[flavor.deps]]
+use = "Chromium-3-Oxide/everforest-medium"
+rev = "0158f0f"
+hash = "dbbbfe681e156c28303efb1f44b6cbc4"
