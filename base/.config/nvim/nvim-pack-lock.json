@@ -5,6 +5,10 @@
       "rev": "d290bf1",
       "src": "https://github.com/404pilo/aicommits.nvim"
     },
+    "ashen": {
+      "rev": "bfb04bd",
+      "src": "https://github.com/ficd0/ashen.nvim"
+    },
     "catppuccin": {
       "rev": "af58927",
       "src": "https://github.com/catppuccin/nvim"
