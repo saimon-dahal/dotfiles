@@ -65,7 +65,7 @@
       "format": "󰋊 {percentage_used}%",
       "path": "/",
       "tooltip": true,
-      "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)"
+      "tooltip-format": "SSD - {used} used out of {total} on {path} ({percentage_used}%)"
     },
     "temperature": {
       "thermal-zone": 6,
