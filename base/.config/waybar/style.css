@@ -6,6 +6,7 @@
 ======================================================= */
 * {
   border: none;
+  color: @fg;
   border-radius: 0;
   font-family: "CaskaydiaMono Nerd Font", "monospace";
   font-weight: normal;
