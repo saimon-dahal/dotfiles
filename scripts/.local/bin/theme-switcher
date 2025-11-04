@@ -13,6 +13,7 @@ source "$MODULE_DIR/wallpaper.sh"
 source "$MODULE_DIR/yazi.sh"
 source "$MODULE_DIR/apps.sh"
 source "$MODULE_DIR/ui.sh"
+source "$MODULE_DIR/gtk.sh"
 
 # Get list of available themes
 themes=$(ls -1 "$THEMES_DIR")
@@ -32,6 +33,8 @@ rm -f "$CURRENT_LINK"
 ln -s "$THEMES_DIR/$selected" "$CURRENT_LINK"
 
 link_yazi_theme "$selected"
+
+apply_gtk_theme "$CURRENT_LINK"
 
 # Apply all themes
 apply_all_themes "$CURRENT_LINK"
