@@ -1,0 +1,34 @@
+@define-color bg-main               #121212;
+@define-color tooltip-bg            rgba(34,34,34,0.95);
+@define-color tooltip-border        #8A8A8D;
+@define-color fg                    #EAEAEA;
+@define-color fg-alt                #F2F1EF;
+@define-color border2               #EAEAEA;
+
+@define-color ws-text               #EAEAEA;
+@define-color ws-active             #F59E0B;   
+@define-color ws-hover              #F59E0B;
+
+@define-color hover-underline       rgba(245,158,11,0.8);
+
+@define-color battery               #F59E0B;
+@define-color battery-warn          #F59E0B;
+@define-color battery-crit          #B91C1C;
+
+@define-color temp-crit             #B91C1C;
+
+@define-color backlight-teal        #938AA9;
+@define-color pulseaudio            @backlight-teal;
+
+@define-color bluetooth             #938AA9;
+
+@define-color gpu-usage             #938AA9;
+@define-color gpu-temp              #F59E0B;
+
+@define-color custom-appmenu        #F59E0B;
+
+@define-color backlight-trough      transparent;
+@define-color backlight-rail        #8A8A8D;
+@define-color backlight-highlight   #F59E0B;
+
+@define-color tray-border           transparent;

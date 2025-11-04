@@ -1,0 +1,64 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$lua\
+$python\
+$golang\
+$jobs\
+$docker_context\
+$cmd_duration\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+[directory]
+style = "bold fg:#EAEAEA"
+format = "[$path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[git_branch]
+symbol = " "
+style = "fg:#F59E0B"
+format = "[on](fg:#EAEAEA) [$symbol$branch ]($style)"
+
+[git_status]
+style = "fg:#F59E0B"
+format = "([$all_status$ahead_behind]($style) )"
+
+[python]
+symbol = " "
+style = "fg:#F59E0B"
+format = '[${symbol}${pyenv_prefix} (${version} )(\($virtualenv\) )]($style)'
+
+[lua]
+symbol = " "
+style = "fg:#B91C1C"
+
+[golang]
+symbol = " "
+style = "fg:#EAEAEA"
+format = "[${symbol}(${version} )]($style)"
+
+[package]
+symbol = "󰏗 "
+style = "fg:#F59E0B"
+
+[cmd_duration]
+min_time = 500
+style = "fg:#EAEAEA"
+format = "[$duration]($style)"
+
+[docker_context]
+symbol = " "
+style = "fg:#938AA9"
+format = "[$symbol]($style) $path"
+
+[jobs]
+symbol = "⚙️ "
+style = "fg:#B91C1C"
