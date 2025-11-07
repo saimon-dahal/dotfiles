@@ -81,3 +81,24 @@ element selected element-icon {
 element-text {
     text-color:         inherit;
 }
+
+mode-switcher {
+  enabled: true;
+  spacing: 10px;
+  margin: 0px;
+  padding: 4px;
+  background-color: transparent;
+  text-color: @text-color;
+}
+button {
+  padding: 0px 12px;
+  border-radius: 8px;
+  background-color: @background-color;
+  text-color: @text-color;
+  cursor: pointer;
+}
+button selected {
+  background-color: @selected-text-color;
+  text-color: @background-color;
+}
+
