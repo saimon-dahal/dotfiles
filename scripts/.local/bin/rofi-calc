@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+# Function to calculate factorial
+factorial() {
+    local n=$1
+    if [ "$n" -eq 0 ] || [ "$n" -eq 1 ]; then
+        echo 1
+    else
+        local result=1
+        for ((i=2; i<=n; i++)); do
+            result=$((result * i))
+        done
+        echo $result
+    fi
+}
+
+# Function to evaluate math expression
+calculate() {
+    local expr="$1"
+    
+    # Divide by zero check (simple)
+    if [[ "$expr" =~ /0([^0-9]|$) ]]; then
+        echo " ⚠ Divide by zero error"
+        return 1
+    fi   
+    # Handle factorial (e.g., "5!")
+    if [[ "$expr" =~ ^([0-9]+)!$ ]]; then
+        local num="${BASH_REMATCH[1]}"
+        if [ "$num" -le 20 ]; then  # Limit to prevent overflow
+            result=$(factorial "$num")
+            echo " $result"
+            return 0
+        else
+            echo " Number too large for factorial (max 20)"
+            return 1
+        fi
+    fi
+    
+    # Check if it's a valid math expression (contains numbers and operators)
+    if [[ "$expr" =~ [0-9] ]] && [[ "$expr" =~ [+*/-] ]]; then
+        # Use bc for calculation
+        result=$(echo "scale=10; $expr" | bc -l 2>/dev/null)
+        if [ $? -eq 0 ] && [ -n "$result" ]; then
+            # Remove trailing zeros and decimal point if whole number
+            result=$(echo "$result" | sed 's/0*$//;s/\.$//' | sed 's/^\./0./')
+            echo " $result"
+            return 0
+        fi
+    fi
+    return 1
+}
+
+# Clipboard copy function prioritizing wl-copy
+copy_to_clipboard() {
+    local text="$1"
+    if command -v wl-copy &>/dev/null; then
+        echo -n "$text" | wl-copy
+    elif command -v xclip &>/dev/null; then
+        echo -n "$text" | xclip -selection clipboard
+    else
+        echo "No clipboard copy utility found." >&2
+        return 1
+    fi
+}
+
+# Rofi mode implementation
+if [ -z "$@" ]; then
+    # Initial call - show nothing, just wait for input
+    :
+else
+    # User entered something
+    query="$@"
+    
+    # Check if user selected a result (starts with space)
+    if [[ "$query" =~ ^\  ]]; then
+        # Extract the number and copy to clipboard
+        result="${query# }"
+        if copy_to_clipboard "$result"; then
+            # You can add a notification here if you want
+            exit 0
+        else
+            exit 1
+        fi
+    fi
+    
+    # Try to calculate
+    calc_result=$(calculate "$query")
+    if [ $? -eq 0 ]; then
+        # Show the result
+        echo "$calc_result"
+    fi
+fi

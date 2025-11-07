@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+# Favorite websites with their URLs
+declare -A favorites=(
+    ["Reddit"]="https://www.reddit.com"
+    ["Instagram"]="https://www.instagram.com"
+    ["YouTube"]="https://www.youtube.com"
+    ["X"]="https://x.com"
+    ["GitHub"]="https://github.com"
+    ["Gmail"]="https://mail.google.com"
+    ["ChatGPT"]="https://chat.openai.com"
+    ["Netflix"]="https://www.netflix.com"
+    ["Amazon"]="https://www.amazon.com"
+    ["Wikipedia"]="https://www.wikipedia.org"
+)
+
+# Your preferred browser and search engine
+BROWSER="firefox"  # Change to your browser: firefox, google-chrome, chromium, brave, etc.
+SEARCH_ENGINE="https://www.google.com/search?q="  # Or use DuckDuckGo: https://duckduckgo.com/?q=
+
+# Function to check if browser is running
+is_browser_running() {
+    pgrep -x "$BROWSER" > /dev/null
+}
+
+# Function to open URL
+open_url() {
+    local url="$1"
+    
+    if is_browser_running; then
+        # Browser is running, open in new tab
+        case "$BROWSER" in
+            firefox)
+                "$BROWSER" --new-tab "$url" &
+                ;;
+            google-chrome|chromium|brave|brave-browser)
+                "$BROWSER" --new-tab "$url" &
+                ;;
+            *)
+                xdg-open "$url" &
+                ;;
+        esac
+    else
+        # Browser not running, start it with the URL
+        "$BROWSER" "$url" &
+    fi
+}
+
+
+
+# Rofi mode implementation
+if [ -z "$@" ]; then
+    # Initial call - display favorites with icon metadata
+    for name in "${!favorites[@]}"; do
+        icon_name="${icons[$name]}"
+        # Output format: display_name \0icon \x1f icon_name
+        echo -en "$name\0icon\x1f$icon_name\n"
+    done | sort
+else
+    # User selected/entered something
+    query="$@"
+    
+    # Check if it's a favorite
+    for name in "${!favorites[@]}"; do
+        if [[ "$query" == "$name" ]]; then
+            open_url "${favorites[$name]}"
+            exit 0
+        fi
+    done
+    
+    # Not a favorite or calculation - check if it looks like a URL
+    if [[ "$query" =~ ^https?:// ]] || [[ "$query" =~ ^[a-zA-Z0-9-]+\.[a-zA-Z]{2,} ]]; then
+        # It looks like a URL
+        if [[ ! "$query" =~ ^https?:// ]]; then
+            query="https://$query"
+        fi
+        open_url "$query"
+    else
+        # Search the term
+        search_url="${SEARCH_ENGINE}${query// /+}"
+        open_url "$search_url"
+    fi
+    
+    # Exit rofi
+    exit 0
+fi
