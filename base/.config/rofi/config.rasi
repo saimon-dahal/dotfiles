@@ -2,7 +2,7 @@ configuration {
   show-icons:           true;
   drun-display-format:  "{name}";
   hide-scrollbar:       true;
-  sidebar-mode:         false;
+  sidebar-mode:         true;
   kb-remove-to-eol:     "Control+p";
   kb-secondary-copy:    "Control+c";
   kb-accept-entry:      "Return";
@@ -16,14 +16,17 @@ configuration {
   me-select-entry:      "";
   me-accept-entry:      [MousePrimary,MouseSecondary];
   terminal:             "kitty";
+  modi:                 "drun,web:~/.local/bin/rofi-web,calc:~/.local/bin/rofi-calc";
+  display-drun:         "󰣆 ";
+  display-web:          "󰖟 ";
+  display-calc:         "󰪚 ";
+  drun-match-fields:    "name,generic,exec,categories,keywords";
+  drun-url-launcher:    "xdg-open";
+  matching:             "normal";
+  tokenize:             true;
+  sorting-method:       "fzf";
+  disable-history:      false;
+  max-history-size:     25;
 }
-
-* {
-  roundness:  15px;
-  radius:     15px;
-  
-}
-
-
 @theme "~/.config/themes/current/rofi.rasi"
 
