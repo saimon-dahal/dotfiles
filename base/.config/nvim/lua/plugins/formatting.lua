@@ -13,6 +13,10 @@ vim.keymap.set("n", "<leader>lf", function()
 		vim.cmd("edit!")
 	elseif ft == "go" then
 		vim.lsp.buf.format({ async = false })
+    elseif ft == "json" then
+		vim.cmd("silent! write")
+		vim.cmd("silent! !jq . " .. file .. " > " .. file .. ".tmp && mv " .. file .. ".tmp " .. file)
+		vim.cmd("edit!")
 	else
 		vim.notify("No formatter defined for filetype: " .. ft, vim.log.levels.WARN)
 	end
@@ -46,6 +50,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		local file = vim.fn.expand("%")
 		vim.cmd("silent! write")
 		vim.cmd("silent! !gofumpt -w " .. file)
+		vim.cmd("edit!")
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = format_group,
+	pattern = "*.json",
+	callback = function()
+		local file = vim.fn.expand("%")
+		vim.cmd("silent! !jq . " .. file .. " > " .. file .. ".tmp && mv " .. file .. ".tmp " .. file)
 		vim.cmd("edit!")
 	end,
 })
