@@ -16,10 +16,9 @@ configuration {
   me-select-entry:      "";
   me-accept-entry:      [MousePrimary,MouseSecondary];
   terminal:             "kitty";
-  modi:                 "drun,web:~/.local/bin/rofi-web,calc:~/.local/bin/rofi-calc";
+  modi:                 "drun,web:~/.local/bin/rofi-web";
   display-drun:         "󰣆 ";
   display-web:          "󰖟 ";
-  display-calc:         "󰪚 ";
   drun-match-fields:    "name,generic,exec,categories,keywords";
   drun-url-launcher:    "xdg-open";
   matching:             "normal";
