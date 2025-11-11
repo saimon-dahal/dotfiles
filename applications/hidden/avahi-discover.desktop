@@ -1,3 +1,5 @@
 [Desktop Entry]
+Name=Avahi Zeroconf Browser
+Type=Application
+NoDisplay=true
 Hidden=true
-
