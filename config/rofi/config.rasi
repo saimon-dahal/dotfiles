@@ -16,7 +16,7 @@ configuration {
   me-select-entry:      "";
   me-accept-entry:      [MousePrimary,MouseSecondary];
   terminal:             "kitty";
-  modi:                 "drun,web:~/.local/bin/rofi-web";
+  modi:                 "drun,web:~/.local/bin/zdf-rofi-web";
   display-drun:         "󰣆 ";
   display-web:          "󰖟 ";
   drun-match-fields:    "name,generic,exec,categories,keywords";
