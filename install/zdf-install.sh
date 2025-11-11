@@ -16,6 +16,7 @@ bash "$INSTALL/zdf-pkg-pacman.sh"
 bash "$INSTALL/zdf-pkg-aur.sh"
 bash "$INSTALL/zdf-link-config.sh"
 bash "$INSTALL/zdf-link-bin.sh"
+bash "$INSTALL/zdf-link-apps.sh"
 bash "$INSTALL/zdf-theme-init.sh"
 
 echo

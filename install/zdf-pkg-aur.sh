@@ -1,4 +1,3 @@
-
 # ═══════════════════════════════════════════
 # zdf-pkg-aur.sh
 
@@ -8,14 +7,32 @@ set -e
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PKGLIST="$DOTFILES/pkglist-aur.txt"
 
-[[ ! -f "$PKGLIST" ]] && { echo "✗ pkglist-aur.txt not found"; exit 1; }
+install_paru() {
+    echo "→ Installing paru..."
+    
+    if ! command -v rustup &> /dev/null; then
+        sudo pacman -S --needed --noconfirm base-devel rustup
+        rustup default stable
+    fi
+    
+    TEMP_DIR=$(mktemp -d)
+    cd "$TEMP_DIR"
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si --noconfirm
+    cd
+    rm -rf "$TEMP_DIR"
+    
+    echo "✓ paru installed"
+}
 
-if ! command -v yay &> /dev/null && ! command -v paru &> /dev/null; then
-    echo "✗ AUR helper (yay/paru) not found"
-    exit 1
+if ! command -v paru &> /dev/null && ! command -v yay &> /dev/null; then
+    install_paru
 fi
 
-AUR_HELPER=$(command -v yay || command -v paru)
+AUR_HELPER=$(command -v paru || command -v yay)
+
+[[ ! -f "$PKGLIST" ]] && { echo "✗ pkglist-aur.txt not found"; exit 1; }
 
 echo "→ Installing AUR packages..."
 
@@ -35,27 +52,4 @@ else
 fi
 
 echo "✓ AUR packages ready"
-echo
-
-# ═══════════════════════════════════════════
-# zdf-theme-init.sh
-
-#!/usr/bin/env bash
-set -e
-
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-THEME_DIR="$HOME/.config/themes"
-CURRENT="$THEME_DIR/current"
-
-echo "→ Setting up themes symlink..."
-
-mkdir -p "$THEME_DIR"
-
-if [[ ! -L "$CURRENT" ]]; then
-    ln -sf "$DOTFILES/themes/Everforest" "$CURRENT"
-    echo "✓ Default theme set: Everforest"
-else
-    echo "✓ Theme already configured"
-fi
-
 echo

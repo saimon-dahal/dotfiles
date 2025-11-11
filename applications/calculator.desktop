@@ -1,0 +1,12 @@
+
+[Desktop Entry]
+Name= Calculator
+Comment= Real time calculations with natural language parsing inside rofi
+Exec=rofi -show calc -modi calc -no-show-match -no-sort
+Terminal=false
+Type=Application
+Icon=/home/zero/Downloads/calculator.png
+Categories=Utility
+Keywords=math;calculate;
+StartupNotify=true
+
