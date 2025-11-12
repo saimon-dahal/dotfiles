@@ -1,0 +1,2 @@
+
+exec setsid uwsm-app -- kitty --app-id=com.zero.Impala -e impala "$@"

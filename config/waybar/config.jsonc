@@ -112,7 +112,7 @@
       "tooltip-format-disconnected": "Disconnected",
       "exec-if": "which nmcli",
       "exec": "nmcli -t -f DEVICE,STATE dev status",
-      "on-click": "iwgtk",
+      "on-click": "~/.local/bin/zdf-launch-wifi",
       "interval": 1
     },
     "bluetooth": {
