@@ -1,30 +1,38 @@
-
-# ═══════════════════════════════════════════
-# zdf-link-config.sh
-
 #!/usr/bin/env bash
 set -e
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SOURCE="$DOTFILES/config"
-TARGET="$HOME/.config"
+CONFIG_SOURCE="$DOTFILES/config"
+CONFIG_TARGET="$HOME/.config"
 
-echo "→ Linking configuration files..."
+echo "→ Linking config directories to $CONFIG_TARGET..."
 
-mkdir -p "$TARGET"
+mkdir -p "$CONFIG_TARGET"
 
-for item in "$SOURCE"/*; do
-    [[ ! -e "$item" ]] && continue
-    
+# Link only directories
+for item in "$CONFIG_SOURCE"/*; do
+    [[ ! -d "$item" ]] && continue  # skip non-directories
     name="$(basename "$item")"
-    dest="$TARGET/$name"
-    
+    dest="$CONFIG_TARGET/$name"
+
     [[ -L "$dest" ]] && rm "$dest"
     [[ -e "$dest" ]] && rm -rf "$dest"
-    
+
     ln -sf "$item" "$dest"
+    echo "Linked directory: $item → $dest"
 done
 
-echo "✓ Configuration linked"
-echo
+# Link dotfiles explicitly
+for file in .tmux.conf .zshrc; do
+    src="$CONFIG_SOURCE/$file"
+    dest="$HOME/$file"
 
+    if [[ -e "$src" ]]; then
+        [[ -L "$dest" ]] && rm "$dest"
+        [[ -e "$dest" ]] && rm -rf "$dest"
+        ln -sf "$src" "$dest"
+        echo "Linked file: $src → $dest"
+    fi
+done
+
+echo "✓ All configuration linked"
