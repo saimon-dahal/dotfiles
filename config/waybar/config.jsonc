@@ -177,6 +177,7 @@
       "interval": 1,
       "format-alt": "{  %d·%m·%y}",
       "tooltip-format": "<span>{calendar}</span>",
+      "on-click": "~/.local/bin/zdf-launch-miti",
       "calendar": {
         "mode": "month",
         "format": {
