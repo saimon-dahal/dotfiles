@@ -1,0 +1,80 @@
+
+# Starship prompt - matching matte_mono neovim theme
+# Color palette:
+# - accent1 (cyan-blue): #8BB4CF - functions, types
+# - accent2 (muted green): #A8C98A - strings, success
+# - accent3 (warm beige): #D9B88A - numbers, constants
+# - accent4 (soft purple): #C49BC4 - keywords
+# - fg: #D0D0D0 - main text
+# - gray: #7C7C7C - dimmed text
+# - error: #D98E8E - errors
+# - warn: #D9C88A - warnings
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$lua\
+$python\
+$golang\
+$jobs\
+$docker_context\
+$cmd_duration\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+[directory]
+style = "bold fg:#D0D0D0"
+format = "[$path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[git_branch]
+symbol = " "
+style = "fg:#8BB4CF"
+format = "[on](fg:#7C7C7C) [$symbol$branch ]($style)"
+
+[git_status]
+style = "fg:#D9C88A"
+format = "([$all_status$ahead_behind]($style) )"
+
+[python]
+symbol = " "
+style = "fg:#8BB4CF"
+format = '[${symbol}${pyenv_prefix} (${version} )(\($virtualenv\) )]($style)'
+
+[lua]
+symbol = " "
+style = "fg:#C49BC4"
+
+[golang]
+symbol = " "
+style = "fg:#8BB4CF"
+format = "[${symbol}(${version} )]($style)"
+
+[package]
+symbol = "󰏗 "
+style = "fg:#D9B88A"
+
+[cmd_duration]
+min_time = 500
+style = "fg:#7C7C7C"
+format = "[$duration]($style)"
+
+[docker_context]
+symbol = " "
+style = "fg:#C49BC4"
+format = "[$symbol]($style) $path"
+
+[jobs]
+symbol = "⚙️ "
+style = "fg:#D98E8E"
+
+[character]
+success_symbol = "[❯](bold fg:#A8C98A)"
+error_symbol = "[❯](bold fg:#D98E8E)"

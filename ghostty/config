@@ -1,0 +1,15 @@
+
+font-family = "MesloLGS Nerd Font Mono, FiraCode Nerd Font Mono"
+font-size = 15
+
+background-opacity = 0.95
+background-blur = true
+
+window-padding-x = 12 
+window-padding-y = 8
+
+copy-on-select = true
+
+title = " "
+class = "ghostty"
+theme = Everforest Dark Hard 

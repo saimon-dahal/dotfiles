@@ -1,0 +1,9 @@
+--hidden
+--no-ignore
+--glob
+!**/{.git,.venv,env,__pycache__,.ruff_cache,.mypy_cache,.pytest_cache,.idea,.vscode}
+--glob=!**/*.{png,jpg,jpeg,gif,bmp,tiff,ico,webp,zip,tar,gz,7z,exe,dll,so,dylib,class,log,tmp,bak}
+--glob=!**/.DS_Store
+--glob=!**/Thumbs.db
+--glob=!**/*~
+--glob=!**/uv.lock*
