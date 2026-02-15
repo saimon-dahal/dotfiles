@@ -1,3 +1,4 @@
 tmux/plugins
 flavors/
 .env
+.DS_STORE
