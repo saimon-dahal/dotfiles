@@ -13,48 +13,42 @@ setopt hist_expire_dups_first hist_verify
 setopt hist_reduce_blanks
 
 # Interaction
-setopt noflowcontrol
-setopt no_beep
-setopt correct
+setopt noflowcontrol no_beep correct
 
 # Completion
-setopt always_to_end
-setopt complete_in_word
-
+setopt always_to_end complete_in_word
+#
+# Download Znap, if it's not there yet.
+[[ -r ~/gitpkgs/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/gitpkgs/znap
+source ~/gitpkgs/znap/znap.zsh
 # =========================================
-# PLUGIN MANAGER (ZINIT)
+# PLUGIN MANAGER (ZNAP)
 # =========================================
-[[ ! -d "$XDG_DATA_HOME/zsh" ]] && mkdir -p "$XDG_DATA_HOME/zsh"
-[[ ! -d "$XDG_CACHE_HOME/zsh" ]] && mkdir -p "$XDG_CACHE_HOME/zsh"
+[[ ! -d "$XDG_DATA_HOME/zsh" ]]   && mkdir -p "$XDG_DATA_HOME/zsh"
+[[ ! -d "$XDG_CACHE_HOME/zsh" ]]  && mkdir -p "$XDG_CACHE_HOME/zsh"
 [[ ! -d "$XDG_STATE_HOME/less" ]] && mkdir -p "$XDG_STATE_HOME/less"
 
-if [[ ! -d "$ZINIT_HOME" ]]; then
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
+# =========================================
+# PLUGINS
+# =========================================
+znap source zsh-users/zsh-completions
+znap source zsh-users/zsh-autosuggestions
+znap source Aloxaf/fzf-tab
+znap source zdharma-continuum/fast-syntax-highlighting
 
-source "$ZINIT_HOME/zinit.zsh"
-
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+# Autosuggestion strategy: history first, then fall back to completions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # =========================================
 # COMPLETION SYSTEM
 # =========================================
 autoload -Uz compinit
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 
-# Smart completion cache: only regenerate once per day
-typeset -i updated_at=$(date +'%j' -r "$XDG_CACHE_HOME/zsh/zcompdump" 2>/dev/null || stat -f '%Sm' -t '%j' "$XDG_CACHE_HOME/zsh/zcompdump" 2>/dev/null)
-if [[ $(date +'%j') != $updated_at ]]; then
-  compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
-else
-  compinit -C -d "$XDG_CACHE_HOME/zsh/zcompdump"
-fi
-
-# Completion styles
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' menu select  # Arrow key driven menu
+zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
@@ -63,26 +57,18 @@ zstyle ':completion:*:descriptions' format '[%d]'
 
 # FZF-tab
 zstyle ':fzf-tab:*' switch-group ',' '.'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*'    fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:*:*'     fzf-preview 'bat --color=always --style=numbers $realpath 2>/dev/null || eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:*:options' fzf-preview ''
 
 # =========================================
 # KEYBINDINGS
 # =========================================
-# History search
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 bindkey '^R' history-incremental-search-backward
-
-# Autosuggestions
-bindkey '^L' autosuggest-accept      # Accept full suggestion
-bindkey '^F' forward-word           # Alt+F: Accept one word at a time
-
-
-# =========================================
-# HISTORY
-# =========================================
-HISTSIZE=50000
-SAVEHIST=50000
+bindkey '^E' autosuggest-accept   # Accept full suggestion
+bindkey '^F' forward-word         # Accept one word of suggestion
 
 # =========================================
 # ALIASES
@@ -103,23 +89,20 @@ alias ln='ln -i'
 alias mkdir='mkdir -pv'
 alias md='mkdir -pv'
 
-# Python
-alias python='python3'
-alias pip='pip3'
-
-# Eza
+# Eza (ls replacement)
 alias ls='eza -lh --group-directories-first --icons=auto'
-alias ll='ls'
-alias la='ls -A'
-alias lsa='ls -a'
+alias la='eza -lhA --group-directories-first --icons=auto'
 alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
 alias l='eza -1'
 
+# Bat (cat replacement)
+alias cat='bat --pager=never'
+
 # Git
 alias lg='lazygit'
 alias g='git'
-alias gs='git status'
+alias gst='git status'
 alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
@@ -127,9 +110,14 @@ alias gl='git pull'
 alias gd='git diff'
 alias gco='git checkout'
 
+# Python / uv (mise handles the python version, uv handles the rest)
+alias venv='uv venv'
+alias pi='uv pip install'
+alias pu='uv pip uninstall'
+alias pf='uv pip freeze'
+
 # Shell
 alias q='exit'
-alias cl='clear'
 alias src='exec zsh'
 alias y='yazi'
 alias h='history'
@@ -142,12 +130,12 @@ alias zshenv='$EDITOR ~/.zshenv'
 # =========================================
 # FUNCTIONS
 # =========================================
-# Calculator
+# Calculator (uses Python for full math support)
 calc() {
   if (( $# == 0 )); then
-    bc -l
+    python3 -q
   else
-    echo "$*" | bc -l
+    python3 -c "from math import *; print($*)"
   fi
 }
 
@@ -166,16 +154,15 @@ extract() {
     echo "Usage: extract <archive>" >&2
     return 1
   fi
-  
   if [[ ! -f "$1" ]]; then
     echo "Error: '$1' is not a valid file" >&2
     return 1
   fi
-  
   case "$1" in
     *.tar.bz2|*.tbz2) tar xjf "$1" ;;
     *.tar.gz|*.tgz)   tar xzf "$1" ;;
     *.tar.xz)         tar xJf "$1" ;;
+    *.tar.zst)        tar --zstd -xf "$1" ;;
     *.tar)            tar xf "$1" ;;
     *.bz2)            bunzip2 "$1" ;;
     *.gz)             gunzip "$1" ;;
@@ -183,6 +170,7 @@ extract() {
     *.Z)              uncompress "$1" ;;
     *.7z)             7z x "$1" ;;
     *.rar)            unrar x "$1" ;;
+    *.zst)            zstd -d "$1" ;;
     *) echo "Error: '$1' - unknown archive format" >&2; return 1 ;;
   esac
 }
@@ -197,38 +185,26 @@ backup() {
 }
 
 # =========================================
-# PYTHON VENV AUTO-ACTIVATE
-# =========================================
-autoload -Uz add-zsh-hook
-
-auto_activate_venv() {
-  local venv_path="$PWD/.venv"
-  
-  if [[ -f "$venv_path/bin/activate" ]]; then
-    if [[ "$VIRTUAL_ENV" != "$venv_path" ]]; then
-      source "$venv_path/bin/activate" 2>/dev/null
-    fi
-  fi
-}
-
-auto_deactivate_venv() {
-  if [[ -n "$VIRTUAL_ENV" ]]; then
-    local venv_dir="${VIRTUAL_ENV:h}"
-    case "$PWD/" in
-      "$venv_dir/"*) ;;
-      *) deactivate 2>/dev/null ;;
-    esac
-  fi
-}
-
-add-zsh-hook chpwd auto_activate_venv
-add-zsh-hook chpwd auto_deactivate_venv
-auto_activate_venv
-
-# =========================================
 # EXTERNAL TOOLS
 # =========================================
-command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
-command -v atuin &>/dev/null && eval "$(atuin init zsh)"
-command -v starship &>/dev/null && eval "$(starship init zsh)"
-command -v fzf &>/dev/null && source <(fzf --zsh)
+# Mise (Python version manager) — must come before starship/fzf
+command -v mise &>/dev/null && eval "$(mise activate zsh)"
+
+# Cache init scripts to avoid subprocess overhead on every shell start
+_cache_init() {
+  local cmd="$1" cache="$XDG_CACHE_HOME/zsh/${1}_init.zsh"
+  shift
+  if command -v "$cmd" &>/dev/null; then
+    if [[ ! -f "$cache" || "$commands[$cmd]" -nt "$cache" ]]; then
+      "$cmd" "$@" >| "$cache"
+    fi
+    source "$cache"
+  fi
+}
+
+_cache_init starship init zsh
+_cache_init zoxide init zsh
+_cache_init atuin  init zsh --disable-up-arrow
+source <(fzf --zsh)  # fzf doesn't support output to file cleanly
+
+unfunction _cache_init
