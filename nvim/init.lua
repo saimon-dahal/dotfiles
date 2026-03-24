@@ -69,4 +69,3 @@ require("plugins.gitsigns")
 require("plugins.error_search")
 
 require("colors.matte_mono")
-
