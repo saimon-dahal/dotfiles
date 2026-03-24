@@ -4,6 +4,8 @@ setopt SHARE_HISTORY EXTENDED_HISTORY HIST_VERIFY
 
 setopt AUTO_CD AUTO_PUSHD PUSHD_IGNORE_DUPS PUSHD_SILENT
 
+setopt NO_BEEP
+
 if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
   source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
   source /opt/homebrew/opt/fzf/shell/completion.zsh

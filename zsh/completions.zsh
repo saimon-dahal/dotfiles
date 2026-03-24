@@ -14,6 +14,7 @@ export LS_COLORS="di=1;34:ln=36:so=35:pi=33:ex=32:bd=34;46:cd=34;43:su=30;41:sg=
 
 zstyle ':completion:*'              matcher-list 'm:{a-z}={A-Z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*'              menu select
+zstyle ':completion:*'              insert-tab false 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*:descriptions' format '%F{yellow}%d%f'
 zstyle ':completion:*:warnings'     format '%F{red}no matches%f'
