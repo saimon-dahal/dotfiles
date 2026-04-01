@@ -1,116 +1,76 @@
 {
   "plugins": {
-    "aicommits.nvim": {
-      "rev": "d290bf1",
-      "src": "https://github.com/404pilo/aicommits.nvim"
-    },
-    "ashen": {
-      "rev": "bfb04bd",
-      "src": "https://github.com/ficd0/ashen.nvim"
-    },
-    "catppuccin": {
-      "rev": "af58927",
-      "src": "https://github.com/catppuccin/nvim"
-    },
     "cmp-nvim-lsp": {
-      "rev": "bd5a7d6",
+      "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
     },
-    "everforest": {
-      "rev": "d293618",
-      "src": "https://github.com/neanias/everforest-nvim"
-    },
     "gitsigns.nvim": {
-      "rev": "1ee5c1f",
+      "rev": "c4854e174979d84d84fe56d3234b95a612673731",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "image.nvim": {
-      "rev": "446a8a5",
+      "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
       "src": "https://github.com/3rd/image.nvim"
     },
-    "jellybeans.nvim": {
-      "rev": "28b8088",
-      "src": "https://github.com/WTFox/jellybeans.nvim"
-    },
-    "kanso.nvim": {
-      "rev": "c2525eb",
-      "src": "https://github.com/webhooked/kanso.nvim"
-    },
     "lazygit.nvim": {
-      "rev": "2305dee",
+      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
       "src": "https://github.com/kdheepak/lazygit.nvim"
     },
     "lualine.nvim": {
-      "rev": "b8c2315",
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "luasnip": {
-      "rev": "7381330",
+      "rev": "642b0c595e11608b4c18219e93b88d7637af27bc",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
-    "lush.nvim": {
-      "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
-      "src": "https://github.com/rktjmp/lush.nvim"
-    },
     "mason.nvim": {
-      "rev": "ad7146a",
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.pick": {
-      "rev": "96ee37d",
+      "rev": "fe079c2bd894a5ee70b62f23d819620ef40c4949",
       "src": "https://github.com/echasnovski/mini.pick"
     },
-    "nord.nvim": {
-      "rev": "80c1e53",
-      "src": "https://github.com/shaunsingh/nord.nvim"
-    },
     "nvim-autopairs": {
-      "rev": "23320e7",
+      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-cmp": {
-      "rev": "b5311ab",
+      "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-lspconfig": {
-      "rev": "3a274c3",
+      "rev": "8e2084bf5e40c79c1f42210a6ef96a0a4793a763",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
-      "rev": "75de178",
+      "rev": "61319d4bd1c5e336e197defa15bd104c51f0fb29",
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-treesitter": {
-      "rev": "42fc28ba",
+      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-web-devicons": {
-      "rev": "b8221e4",
+      "rev": "d7462543c9e366c0d196c7f67a945eaaf5d99414",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil-git-status.nvim": {
-      "rev": "4b5cf53",
+      "rev": "a3e2ccb00cb8822115e28a9a1791eda051d940c9",
       "src": "https://github.com/refractalize/oil-git-status.nvim"
     },
     "oil.nvim": {
-      "rev": "919e155",
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
     },
-    "tender.vim": {
-      "rev": "b66dc33",
-      "src": "https://github.com/jacoborus/tender.vim"
-    },
     "treesitter-context": {
-      "rev": "41847d3",
+      "rev": "adf4b6b0420b7be6c717ef0ac7993183d6c201b1",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "vim-tmux-navigator": {
-      "rev": "c45243d",
+      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
-    },
-    "zenbones": {
-      "rev": "4635a3f46d1066975d1074cd9f61f93cb1e32f64",
-      "src": "https://github.com/zenbones-theme/zenbones.nvim"
     }
   }
 }
