@@ -1,8 +1,13 @@
+local files=(
+  "$ZDOTDIR/options.zsh"
+  "$ZDOTDIR/completions.zsh"
+  "$ZDOTDIR/keybindings.zsh"
+  "$ZDOTDIR/plugins.zsh"
+  "$ZDOTDIR/aliases.zsh"
+  "$ZDOTDIR/functions.zsh"
+  "$ZDOTDIR/tools.zsh"
+)
 
-source "$DOTFILES/zsh/options.zsh"
-source "$DOTFILES/zsh/plugins.zsh"
-source "$DOTFILES/zsh/completions.zsh"
-source "$DOTFILES/zsh/keybindings.zsh"
-source "$DOTFILES/zsh/aliases.zsh"
-source "$DOTFILES/zsh/functions.zsh"
-source "$DOTFILES/zsh/tools.zsh"
+for f in $files; do
+  [[ -f $f ]] && source $f
+done
