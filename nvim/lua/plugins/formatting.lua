@@ -1,90 +1,104 @@
-vim.keymap.set("n", "<leader>lf", function()
-	local ft = vim.bo.filetype
-	local file = vim.fn.expand("%")
-	if ft == "python" then
-		vim.cmd("silent! write")
-		vim.cmd("silent! !ruff format " .. file)
-		vim.cmd("silent! !ruff check --select I --fix-only " .. file) -- I = isort
-		vim.cmd("silent! !ruff check " .. file)
-		vim.cmd("edit!")
-	elseif ft == "lua" then
-		vim.cmd("silent! write")
-		vim.cmd("silent! !stylua " .. file)
-		vim.cmd("edit!")
-	elseif ft == "json" then
-		vim.cmd("silent! write")
-		vim.cmd("silent! !jq . " .. file .. " > " .. file .. ".tmp && mv " .. file .. ".tmp " .. file)
-		vim.cmd("edit!")
-	else
-		vim.notify("No formatter defined for filetype: " .. ft, vim.log.levels.WARN)
-	end
-end, { desc = "Format File", noremap = true, silent = true })
-
-local format_group = vim.api.nvim_create_augroup("AutoFormat", { clear = true })
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-	group = format_group,
-	pattern = "*.py",
-	callback = function()
-		local file = vim.api.nvim_buf_get_name(0)
-		vim.fn.system({ "ruff", "format", file })
-		vim.fn.system({ "ruff", "check", "--select", "I", "--fix-only", file })
-		vim.cmd("checktime")
-	end,
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		-- Conform will run multiple formatters sequentially
+		python = { "ruff", "black", stop_after_first = true },
+	},
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-	group = format_group,
-	pattern = "*.lua",
-	callback = function()
-		vim.fn.system({ "stylua", vim.api.nvim_buf_get_name(0) })
-		vim.cmd("checktime")
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
 	end,
 })
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-	group = format_group,
-	pattern = "*.json",
-	callback = function()
-		local file = vim.api.nvim_buf_get_name(0)
-		vim.fn.system(
-			{ "sh", "-c", "jq . " .. vim.fn.shellescape(file) .. " > " .. file .. ".tmp && mv " .. file .. ".tmp " .. file }
-		)
-		vim.cmd("checktime")
-	end,
-})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-	group = vim.api.nvim_create_augroup("RuffDiagnostics", { clear = true }),
-	pattern = "*.py",
-	callback = function()
-		local bufnr = vim.api.nvim_get_current_buf()
-		local file = vim.fn.expand("%")
-		vim.fn.jobstart({ "ruff", "check", "--output-format=json", file }, {
-			stdout_buffered = true,
-			on_stdout = function(_, data)
-				if not data then
-					return
-				end
-				local diagnostics = {}
-				for _, line in ipairs(data) do
-					if line ~= "" then
-						local ok, decoded = pcall(vim.json.decode, line)
-						if ok and decoded then
-							for _, d in ipairs(decoded) do
-								table.insert(diagnostics, {
-									lnum = (d.location and d.location.row or 1) - 1,
-									col = (d.location and d.location.column or 1) - 1,
-									message = d.message or "",
-									severity = vim.diagnostic.severity.WARN,
-									source = "ruff",
-								})
-							end
-						end
-					end
-				end
-				vim.diagnostic.set(vim.api.nvim_create_namespace("ruff"), bufnr, diagnostics)
-			end,
-		})
-	end,
-})
+-- vim.keymap.set("n", "<leader>lf", function()
+-- 	local ft = vim.bo.filetype
+-- 	local file = vim.fn.expand("%")
+-- 	if ft == "python" then
+-- 		vim.cmd("silent! write")
+-- 		vim.cmd("silent! !ruff format " .. file)
+-- 		vim.cmd("silent! !ruff check --select I --fix-only " .. file) -- I = isort
+-- 		vim.cmd("silent! !ruff check " .. file)
+-- 		vim.cmd("edit!")
+-- 	elseif ft == "lua" then
+-- 		vim.cmd("silent! write")
+-- 		vim.cmd("silent! !stylua " .. file)
+-- 		vim.cmd("edit!")
+-- 	elseif ft == "json" then
+-- 		vim.cmd("silent! write")
+-- 		vim.cmd("silent! !jq . " .. file .. " > " .. file .. ".tmp && mv " .. file .. ".tmp " .. file)
+-- 		vim.cmd("edit!")
+-- 	else
+-- 		vim.notify("No formatter defined for filetype: " .. ft, vim.log.levels.WARN)
+-- 	end
+-- end, { desc = "Format File", noremap = true, silent = true })
+--
+-- local format_group = vim.api.nvim_create_augroup("AutoFormat", { clear = true })
+--
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	group = format_group,
+-- 	pattern = "*.py",
+-- 	callback = function()
+-- 		local file = vim.api.nvim_buf_get_name(0)
+-- 		vim.fn.system({ "ruff", "format", file })
+-- 		vim.fn.system({ "ruff", "check", "--select", "I", "--fix-only", file })
+-- 		vim.cmd("checktime")
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	group = format_group,
+-- 	pattern = "*.lua",
+-- 	callback = function()
+-- 		vim.fn.system({ "stylua", vim.api.nvim_buf_get_name(0) })
+-- 		vim.cmd("checktime")
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	group = format_group,
+-- 	pattern = "*.json",
+-- 	callback = function()
+-- 		local file = vim.api.nvim_buf_get_name(0)
+-- 		vim.fn.system(
+-- 			{ "sh", "-c", "jq . " .. vim.fn.shellescape(file) .. " > " .. file .. ".tmp && mv " .. file .. ".tmp " .. file }
+-- 		)
+-- 		vim.cmd("checktime")
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	group = vim.api.nvim_create_augroup("RuffDiagnostics", { clear = true }),
+-- 	pattern = "*.py",
+-- 	callback = function()
+-- 		local bufnr = vim.api.nvim_get_current_buf()
+-- 		local file = vim.fn.expand("%")
+-- 		vim.fn.jobstart({ "ruff", "check", "--output-format=json", file }, {
+-- 			stdout_buffered = true,
+-- 			on_stdout = function(_, data)
+-- 				if not data then
+-- 					return
+-- 				end
+-- 				local diagnostics = {}
+-- 				for _, line in ipairs(data) do
+-- 					if line ~= "" then
+-- 						local ok, decoded = pcall(vim.json.decode, line)
+-- 						if ok and decoded then
+-- 							for _, d in ipairs(decoded) do
+-- 								table.insert(diagnostics, {
+-- 									lnum = (d.location and d.location.row or 1) - 1,
+-- 									col = (d.location and d.location.column or 1) - 1,
+-- 									message = d.message or "",
+-- 									severity = vim.diagnostic.severity.WARN,
+-- 									source = "ruff",
+-- 								})
+-- 							end
+-- 						end
+-- 					end
+-- 				end
+-- 				vim.diagnostic.set(vim.api.nvim_create_namespace("ruff"), bufnr, diagnostics)
+-- 			end,
+-- 		})
+-- 	end,
+-- })

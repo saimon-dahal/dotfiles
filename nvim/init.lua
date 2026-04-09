@@ -36,6 +36,9 @@ vim.pack.add({
 	-- Lualine
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 
+	-- Formatter
+	{ src = "https://github.com/stevearc/conform.nvim" },
+
 	-- autopairs
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 
